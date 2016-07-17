@@ -1,8 +1,8 @@
 'use strict';
 
-var app = angular.module('HourApp', []);
+var myApp = angular.module('HourApp', ['firebase']);
 
-app.controller('HourCtrl', ['$scope', function($scope) {
+myApp.controller('HourCtrl', ['$scope', function($scope) {
 	
 
 }]);
