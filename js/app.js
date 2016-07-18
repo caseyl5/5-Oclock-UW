@@ -8,7 +8,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 		.state('home', {
 			url: '/home',
 			templateUrl: 'partials/home.html',
-			controller: 'HourCtrl'
+			controller: 'homeCtrl'
 		})
         .state('signUp', {
 			url: '/signUp',
@@ -16,7 +16,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			controller: 'HourCtrl'
 		})
         .state('locator', {
-			url: '/locator',
+			url: '/locator:rest',
 			templateUrl: 'partials/locator.html',
 			controller: 'HourCtrl'
 		})
@@ -43,8 +43,18 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 }]);
 
 
-myApp.controller('HourCtrl', ['$scope', function($scope) {
-    
+myApp.controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
+    $http.get('data/starter.json').then(function(response){
+		var data = response.data;
+		var deals = data.deals;
+		var users = data.users;
+		var rest = data.restaurants;
+		console.log(users[0].userId); 
+		console.log(deals);
+		$scope.data = data;
+		$scope.rests = rest;
+		console.log(rest);
+	});
 
 }]);
 
@@ -89,21 +99,23 @@ myApp.factory('commentService',function() {
 
 
 // controller for the favorites page 
+// filters data based on user 
 myApp.controller('FavCtrl', ['$scope', '$http', function($scope, $http) {
     // user data loaded from cloud in future version 
 	// want data from user 1 
-	
 	$http.get('data/starter.json').then(function(response){
 		var data = response.data;
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
+
+	var found =_.find(users, function(o) { return o.userId === "user-id-1"});
+			
 	});
 
-	var selected = {};
-	for (var i = 0; i < users.length; i++) {
-		
-	}
+	
+	
+	
 	
 
 
