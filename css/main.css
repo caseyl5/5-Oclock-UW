@@ -17,3 +17,10 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
+
+header {
+    background-color: darkgrey;
+}
+#new {
+    color: black;
+}

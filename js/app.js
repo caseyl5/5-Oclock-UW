@@ -35,6 +35,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 
 
 
+
 	$urlRouterProvider.otherwise('/home');
 }]);
 
