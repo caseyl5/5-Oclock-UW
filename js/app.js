@@ -8,7 +8,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 		.state('home', {
 			url: '/home',
 			templateUrl: 'partials/home.html',
-			controller: 'HourCtrl'
+			controller: 'homeCtrl'
 		})
         .state('signUp', {
 			url: '/signUp',
@@ -43,8 +43,14 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 }]);
 
 
-myApp.controller('HourCtrl', ['$scope', function($scope) {
-    
+myApp.controller('homeCtrl', ['$scope', function($scope) {
+    $http.get('data/starter.json').then(function(response){
+		var data = response.data;
+		var deals = data.deals;
+		var users = data.users;
+		var rest = data.restaurants;
+		console.log(users[0].userId); 
+	});
 
 }]);
 
