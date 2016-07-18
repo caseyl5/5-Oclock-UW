@@ -28,7 +28,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
         .state('favorites', {
 			url: '/favorites',
 			templateUrl: 'partials/favorites.html',
-			controller: 'HourCtrl'
+			controller: 'FavCtrl'
 		})
 		.state('feedback', {
 			url: '/orders/:restaurantName', 
@@ -73,3 +73,13 @@ myApp.factory('commentService',function() {
 
 	return feedback;
 });
+
+
+// controller for the favorites page 
+myApp.controller('FavCtrl', ['$scope', '$http', function($scope, $http) {
+    $http.get('data/starter.json').then(function(response){
+		var data = response.data;
+		console.log(data); 
+	});
+
+}]);
