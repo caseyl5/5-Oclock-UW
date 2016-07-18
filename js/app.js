@@ -43,13 +43,17 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 }]);
 
 
-myApp.controller('homeCtrl', ['$scope', function($scope) {
+myApp.controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
     $http.get('data/starter.json').then(function(response){
 		var data = response.data;
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
 		console.log(users[0].userId); 
+		console.log(deals);
+		$scope.data = data;
+		$scope.rests = rest;
+		console.log(rest);
 	});
 
 }]);

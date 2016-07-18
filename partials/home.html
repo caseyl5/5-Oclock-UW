@@ -9,4 +9,14 @@
     <li>Our favorites</li>
     <li>Reviews!</li>
 </ul>
+
+<table class="table">
+		<tr>
+			<th ng-click="sortBy(name)" scope="col">Name</th>
+			<th ng-click="sortBy('website')">Website</th>
+		</tr>
+		<tr ng-repeat="rest in rests | orderBy: ordering | filter:searchTerm">
+			<td >{{rest.name}}</td>
+			<td>{{rest.website}}</td>
+	</table>
 </div>
