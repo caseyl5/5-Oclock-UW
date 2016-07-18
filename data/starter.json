@@ -1,5 +1,5 @@
 {
-    "restaurants": { // contains all of the restaurants 
+    "restaurants": { 
         "restaurant-id-1": {
             "name": "Finn MacCool's",
             "website": "http://www.finnmaccools.com/"
@@ -26,7 +26,7 @@
             "restaurantId": "restaurant-id-1",
             "hours": {
                 "Sunday": [
-                    16, // start and end time in 24 hr format
+                    16, 
                     19
                 ],
                 "Monday": [
@@ -147,6 +147,13 @@
                 ]
             },
             "description": "Classic Plates $3-$9, Wine Bottles $15, Speciality Cocktails $5"
+        }
+    },
+    "users" : {
+        "user-id-1": {
+            "firstName" : "Matt",
+            "lastName" : "Damon",
+            "favorites" : ["restaurant-id-1", "restaurant-id-3"]
         }
     }
 }
