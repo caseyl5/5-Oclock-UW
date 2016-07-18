@@ -54,6 +54,8 @@ myApp.controller('commentCtrl', ['$scope',function($scope) {
 	$scope.submitComment = function () {
 
 	}
+
+	$scope.commentList = feedback.comments;
 }])
 
 //storing the feedback
