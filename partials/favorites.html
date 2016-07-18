@@ -1,3 +1,8 @@
 <body ng-controller="FavCtrl">
-    <h1></h1>
+    <section class="container-fluid">
+        <div class="col-md-6 col-lg-3" ng-repeat="favorite in favorites">
+            <h3>{{favorite.name}}</h3>
+            <p ng -repeat="gain in gains" | filter:{}
+        </div>
+    </section>
 </body>
