@@ -115,7 +115,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 		}
 
 		$scope.favorites = test;
-
+		$scope.deals = data.deals; 
 	});
 
 }]);
