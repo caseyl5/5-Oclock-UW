@@ -1,7 +1,9 @@
  #home {
-    background: url('http://flightdeckbar.com/wp-content/uploads/2016/05/csc-beer-fine.jpg') !important;
+    background: url('https://media.timeout.com/images/100519023/image.jpg') !important;
+    color: lightsteelblue;
 }
 
 #menu {
-    background-color: black;
+    background-color: grey;
+    color: darkolivegreen;
 }

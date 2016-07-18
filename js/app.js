@@ -16,7 +16,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			controller: 'HourCtrl'
 		})
         .state('locator', {
-			url: '/locator',
+			url: '/locator:rest',
 			templateUrl: 'partials/locator.html',
 			controller: 'HourCtrl'
 		})
