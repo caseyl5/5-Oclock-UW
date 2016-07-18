@@ -1,32 +1,38 @@
 {
-    "restaurants": { 
-        "restaurant-id-1": {
+    "restaurants": [
+        {
+            "restaurantId": "restaurant-id-1",
             "name": "Finn MacCool's",
             "website": "http://www.finnmaccools.com/"
         },
-        "restaurant-id-2": {
+        {
+            "restaurantId": "restaurant-id-2",
             "name": "Eureka",
             "website": "https://uvillage.com/eureka/"
         },
-        "restaurant-id-3": {
+        {
+            "restaurantId": "restaurant-id-3",
             "name": "Mamma Melina",
             "website": "http://mammamelina.com/index.php"
         },
-        "restaurant-id-4": {
+        {
+            "restaurantId": "restaurant-id-4",
             "name": "Earl's on the Ave",
             "website": "http://paulsitaliankitchen.com/"
         },
-        "restaurant-id-5": {
+        {
+            "restaurantId": "restaurant-id-5",
             "name": "RAM Restaurant & Brewery",
             "website": "http://www.theram.com/"
         }
-    },
-    "deals": {
-        "deal-id-1": {
+    ],
+    "deals": [
+        {
+            "dealId": "deal-id-1",
             "restaurantId": "restaurant-id-1",
             "hours": {
                 "Sunday": [
-                    16, 
+                    16,
                     19
                 ],
                 "Monday": [
@@ -56,7 +62,8 @@
             },
             "description": "$3 Wine $4 Wells $4 Micro Brews $5 Appetizers $3 off any pizza"
         },
-        "deal-id-2": {
+        {
+            "dealId": "deal-id-2",
             "restaurantId": "restaurant-id-2",
             "hours": {
                 "Sunday": [
@@ -104,7 +111,8 @@
             },
             "description": "Half price appetizers Craft Brews $3-$5"
         },
-        "deal-id-3": {
+        {
+            "dealId": "deal-id-3",
             "restaurantId": "restaurant-id-3",
             "hours": {
                 "Sunday": [
@@ -148,12 +156,16 @@
             },
             "description": "Classic Plates $3-$9, Wine Bottles $15, Speciality Cocktails $5"
         }
-    },
-    "users" : {
-        "user-id-1": {
-            "firstName" : "Matt",
-            "lastName" : "Damon",
-            "favorites" : ["restaurant-id-1", "restaurant-id-3"]
+    ],
+    "users": [
+        {
+            "userId": 1,
+            "firstName": "Matt",
+            "lastName": "Damon",
+            "favorites": [
+                "restaurant-id-1",
+                "restaurant-id-3"
+            ]
         }
-    }
+    ]
 }
