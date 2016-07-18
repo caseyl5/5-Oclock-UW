@@ -88,21 +88,23 @@ myApp.factory('commentService',function() {
 
 
 // controller for the favorites page 
+// filters data based on user 
 myApp.controller('FavCtrl', ['$scope', '$http', function($scope, $http) {
     // user data loaded from cloud in future version 
 	// want data from user 1 
-	
 	$http.get('data/starter.json').then(function(response){
 		var data = response.data;
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
+
+	var found =_.find(users, function(o) { return o.userId === "user-id-1"});
+			
 	});
 
-	var selected = {};
-	for (var i = 0; i < users.length; i++) {
-		
-	}
+	
+	
+	
 	
 
 
