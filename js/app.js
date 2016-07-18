@@ -54,6 +54,8 @@ myApp.controller('commentCtrl', ['$scope',function($scope) {
 	$scope.submitComment = function () {
 
 	}
+
+	$scope.commentList = feedback.comments;
 }])
 
 //storing the feedback
@@ -66,9 +68,9 @@ myApp.factory('commentService',function() {
 		feedback.comments = [];
 	}
 
-	feedback.addComment = function(orderInfo){
-		service.cartList.push(orderInfo);
-		localStorage.cartList = JSON.stringify(service.cartList);
+	feedback.addComment = function(comment){
+		feedback.comments.push(comment);
+		localStorage.comments = JSON.stringify(feedback.comments);
 	};
 
 	return feedback;
