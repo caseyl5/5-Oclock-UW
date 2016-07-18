@@ -30,6 +30,11 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			templateUrl: 'partials/favorites.html',
 			controller: 'HourCtrl'
 		})
+		.state('feedback', {
+			url: '/orders/:restaurantName', 
+			templateUrl: 'partials/feedback.html',
+			controller: 'commentCtrl'
+    	})
 
 
 
@@ -42,3 +47,29 @@ myApp.controller('HourCtrl', ['$scope', function($scope) {
     
 
 }]);
+
+//Controller for feedback page
+myApp.controller('commentCtrl', ['$scope',function($scope) {
+	//function for submitting comment 
+	$scope.submitComment = function () {
+
+	}
+}])
+
+//storing the feedback
+myApp.factory('commentService',function() {
+	var feedback = {};
+
+	if(localStorage.comments !== undefined){
+		feedback.comments = JSON.parse(localStorage.comments);
+	} else {
+		feedback.comments = [];
+	}
+
+	feedback.addComment = function(orderInfo){
+		service.cartList.push(orderInfo);
+		localStorage.cartList = JSON.stringify(service.cartList);
+	};
+
+	return feedback;
+});
