@@ -16,12 +16,12 @@
         <table class="table">
             <tr>
                 <th scope="col">Username</th>
-                <th scope="col">Date</th>
+                <th scope="col" ng-click="sort('date')">Date</th>
                 <th scope="col">Feedback</th>
             </tr>
-            <tr scope="row" ng-repeat="opinion in commentList track by $index">
+            <tr scope="row" ng-repeat="opinion in commentList track by $index | orderBy: odering">
                 <td>{{opinion.username}}</td>
-                <td ng-click=''>{{opinion.date}}</td>
+                <td>{{opinion.date}}</td>
                 <td>{{opinion.comment}}</td>
             </tr>
         </table>

@@ -50,12 +50,23 @@ myApp.controller('HourCtrl', ['$scope', function($scope) {
 
 //Controller for feedback page
 myApp.controller('commentCtrl', ['$scope',function($scope) {
+	$scope.commentList = feedback.comments;
+
 	//function for submitting comment 
 	$scope.submitComment = function () {
 
 	}
 
-	$scope.commentList = feedback.comments;
+	//sort the feedbacks in order
+	$scope.sort = function (order) {
+		if($scope.ordering == order){
+            $scope.ordering = '-' + order;
+        } else {
+            $scope.ordering = order;
+        }
+	}
+
+	
 }])
 
 //storing the feedback
