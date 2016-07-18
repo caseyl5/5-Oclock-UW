@@ -77,12 +77,21 @@ myApp.factory('commentService',function() {
 
 // controller for the favorites page 
 myApp.controller('FavCtrl', ['$scope', '$http', function($scope, $http) {
-    $http.get('data/starter.json').then(function(response){
+    // user data loaded from cloud in future version 
+	// want data from user 1 
+	
+	$http.get('data/starter.json').then(function(response){
 		var data = response.data;
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
-		console.log(users[0].userId); 
 	});
+
+	var selected = {};
+	for (var i = 0; i < users.length; i++) {
+		
+	}
+	
+
 
 }]);
