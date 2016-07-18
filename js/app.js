@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module('HourApp', ['firebase']);
+var myApp = angular.module('HourApp', ['firebase', 'ngSanitize', 'ui.bootstrap', 'ui.router']);
 
 //configure routes
 myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -38,7 +38,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 }]);
 
 
-myApp.controller('HourCtrl', ['$scope', '$stateProvider', function($scope, $stateProvider) {
+myApp.controller('HourCtrl', ['$scope', function($scope) {
     
 
 }]);
