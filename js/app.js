@@ -95,7 +95,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function($scope, $http) {
 		var rest = data.restaurants;
 
 	var found =_.find(users, function(o) { return o.userId === "user-id-1"});
-		
+			
 	});
 
 	
