@@ -18,3 +18,7 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
+#signup, #login {
+  margin-top: 10px;
+}
+
