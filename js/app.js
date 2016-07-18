@@ -60,6 +60,8 @@ myApp.controller('commentCtrl', ['$scope',function($scope) {
 	$scope.submitComment = function () {
 
 	}
+
+	$scope.commentList = feedback.comments;
 }])
 
 //storing the feedback
@@ -72,9 +74,9 @@ myApp.factory('commentService',function() {
 		feedback.comments = [];
 	}
 
-	feedback.addComment = function(orderInfo){
-		service.cartList.push(orderInfo);
-		localStorage.cartList = JSON.stringify(service.cartList);
+	feedback.addComment = function(comment){
+		feedback.comments.push(comment);
+		localStorage.comments = JSON.stringify(feedback.comments);
 	};
 
 	return feedback;
@@ -83,12 +85,21 @@ myApp.factory('commentService',function() {
 
 // controller for the favorites page 
 myApp.controller('FavCtrl', ['$scope', '$http', function($scope, $http) {
-    $http.get('data/starter.json').then(function(response){
+    // user data loaded from cloud in future version 
+	// want data from user 1 
+	
+	$http.get('data/starter.json').then(function(response){
 		var data = response.data;
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
-		console.log(users[0].userId); 
 	});
+
+	var selected = {};
+	for (var i = 0; i < users.length; i++) {
+		
+	}
+	
+
 
 }]);

@@ -19,10 +19,10 @@
                 <th scope="col">Date</th>
                 <th scope="col">Feedback</th>
             </tr>
-            <tr scope="row" ng-repeat="order in cart track by $index">
-                <td></td>
-                <td ng-click=''></td>
-                <td></td>
+            <tr scope="row" ng-repeat="opinion in commentList track by $index">
+                <td>{{opinion.username}}</td>
+                <td ng-click=''>{{opinion.date}}</td>
+                <td>{{opinion.comment}}</td>
             </tr>
         </table>
     </section>

@@ -159,7 +159,7 @@
     ],
     "users": [
         {
-            "userId": 1,
+            "userId": "user-id-1",
             "firstName": "Matt",
             "lastName": "Damon",
             "favorites": [
