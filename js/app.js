@@ -30,11 +30,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			templateUrl: 'partials/favorites.html',
 			controller: 'FavCtrl'
 		})
-		.state('feedback', {
-			url: '/orders/:restaurantName', 
-			templateUrl: 'partials/feedback.html',
-			controller: 'commentCtrl'
-    	})
+		
 
 
 
@@ -58,10 +54,10 @@ myApp.controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
 
 }]);
 
-//Controller for feedback page
-myApp.controller('commentCtrl', ['$scope',function($scope) {
-	$scope.commentList = feedback.comments;
+//Controller for detail page
+myApp.controller('HourCtrl', ['$scope',function($scope) {
 
+	$scope.commentList = feedback.comments;
 	//function for submitting comment 
 	$scope.submitComment = function () {
 
