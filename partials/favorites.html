@@ -1,9 +1,9 @@
 <body ng-controller="FavCtrl">
     <section class="container-fluid">
         <div class="col-md-6 col-lg-3" ng-repeat="favorite in favorites">
-            <h3>{{favorite.name}}</h3>
-            <p ng-repeat="deal in deals" 
-            
+            <h3>{{favorite.restaurantId}}</h3>
+            <p ng-repeat="deal in deals | filter: {restaurantId: {{favorite.restaurantId}} }"> 
+            {{deal.description}}
             </p>
         </div>
     </section>
