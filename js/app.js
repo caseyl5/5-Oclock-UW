@@ -13,7 +13,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
         .state('signUp', {
 			url: '/signUp',
 			templateUrl: 'partials/signUp.html',
-			controller: 'HourCtrl'
+			controller: 'userCtrl'
 		})
         .state('locator', {
 			url: '/locator:rest',
@@ -37,6 +37,46 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 
 
 	$urlRouterProvider.otherwise('/home');
+}]);
+
+myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function($scope, $firebaseAuth, $firebaseObject) {
+	var Auth = $firebaseAuth();
+	$scope.newUser = {};
+	var baseRef = firebase.database().ref();
+	var usersRef = baseRef.child('users');
+	$scope.users = $firebaseObject(usersRef);
+	
+	$scope.signUp = function(data) {
+		Auth.$createUserWithEmailAndPassword($scope.newUser.email, $scope.newUser.confirm)
+		.then(function(firebaseUser) {
+			$scope.userId = firebaseUser.uid;
+			var userData = {
+				username: $scope.newUser.username
+			};
+			var newUserRef = usersRef.child(firebaseUser.uid);
+			newUserRef.set(userData);
+		})
+	};
+
+	Auth.$onAuthStateChanged(function(firebaseUser) {
+   		if(firebaseUser) {
+			  $scope.userId = firebaseUser.uid;
+   		}
+   		else {
+      		$scope.userId = undefined;
+   		}
+	});
+
+	$scope.signOut = function() {
+   		Auth.$signOut();
+	};
+
+	$scope.signIn = function() {
+   		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
+		.then(function(firebaseUser) {
+			console.log(firebaseUser.uid);
+		})
+	};
 }]);
 
 
