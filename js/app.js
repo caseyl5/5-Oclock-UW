@@ -111,11 +111,9 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 		var restList = found.favorites;
 		for (var i =0; i < restList.length; i++) {
 			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i]}));
-			console.log(test); 
 		}
-
-		$scope.favorites = test;
-		$scope.deals = data.deals; 
+		console.log(test); 
+		$scope.favorites = test; 
 	});
 
 }]);

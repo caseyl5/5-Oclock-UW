@@ -159,60 +159,15 @@
             "website": "http://www.theram.com/"
         }
     ],
-    "dealId": "deal-id-3",
-    "restaurantId": "restaurant-id-3",
-    "hours": {
-        "Sunday": [
-            11.5,
-            23
-        ],
-        "Monday": [
-            11.5,
-            23
-        ],
-        "Tuesday": [
-            15,
-            19,
-            21,
-            23
-        ],
-        "Wednesday": [
-            15,
-            19,
-            21,
-            23
-        ],
-        "Thursday": [
-            15,
-            19,
-            21,
-            23
-        ],
-        "Friday": [
-            15,
-            19,
-            21,
-            23
-        ],
-        "Saturday": [
-            15,
-            19,
-            21,
-            23
-        ]
-    },
-    "description": "Classic Plates $3-$9, Wine Bottles $15, Speciality Cocktails $5"
-}
-],
-"users": [
-{
-    "userId": "user-id-1",
-    "firstName": "Matt",
-    "lastName": "Damon",
-    "favorites": [
-        "restaurant-id-1",
-        "restaurant-id-3"
+    "users": [
+        {
+            "userId": "user-id-1",
+            "firstName": "Matt",
+            "lastName": "Damon",
+            "favorites": [
+                "restaurant-id-1",
+                "restaurant-id-3"
+            ]
+        }
     ]
-}
-]
 }
