@@ -39,43 +39,43 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 	$urlRouterProvider.otherwise('/home');
 }]);
 
-myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function($scope, $firebaseAuth, $firebaseObject) {
+myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
 	var Auth = $firebaseAuth();
 	$scope.newUser = {};
 	var baseRef = firebase.database().ref();
 	var usersRef = baseRef.child('users');
 	$scope.users = $firebaseObject(usersRef);
-	
-	$scope.signUp = function(data) {
+
+	$scope.signUp = function (data) {
 		Auth.$createUserWithEmailAndPassword($scope.newUser.email, $scope.newUser.confirm)
-		.then(function(firebaseUser) {
-			$scope.userId = firebaseUser.uid;
-			var userData = {
-				username: $scope.newUser.username
-			};
-			var newUserRef = usersRef.child(firebaseUser.uid);
-			newUserRef.set(userData);
-		})
+			.then(function (firebaseUser) {
+				$scope.userId = firebaseUser.uid;
+				var userData = {
+					username: $scope.newUser.username
+				};
+				var newUserRef = usersRef.child(firebaseUser.uid);
+				newUserRef.set(userData);
+			})
 	};
 
-	Auth.$onAuthStateChanged(function(firebaseUser) {
-   		if(firebaseUser) {
-			  $scope.userId = firebaseUser.uid;
-   		}
-   		else {
-      		$scope.userId = undefined;
-   		}
+	Auth.$onAuthStateChanged(function (firebaseUser) {
+		if (firebaseUser) {
+			$scope.userId = firebaseUser.uid;
+		}
+		else {
+			$scope.userId = undefined;
+		}
 	});
 
-	$scope.signOut = function() {
-   		Auth.$signOut();
+	$scope.signOut = function () {
+		Auth.$signOut();
 	};
 
-	$scope.signIn = function() {
-   		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
-		.then(function(firebaseUser) {
-			console.log(firebaseUser.uid);
-		})
+	$scope.signIn = function () {
+		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
+			.then(function (firebaseUser) {
+				console.log(firebaseUser.uid);
+			})
 	};
 }]);
 
@@ -96,18 +96,18 @@ myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
 //myApp.controller('HourCtrl', ['$scope', function ($scope) {
 
 //	$scope.commentList = feedback.comments;
-	//function for submitting comment 
+//function for submitting comment 
 //	$scope.submitComment = function () {
 
 //	}
 
-	//sort the feedbacks in order
+//sort the feedbacks in order
 //	$scope.sort = function (order) {
 //		if ($scope.ordering == order) {
-  //          $scope.ordering = '-' + order;
-    //    } else {
-     //       $scope.ordering = order;
-     //   }
+//          $scope.ordering = '-' + order;
+//    } else {
+//       $scope.ordering = order;
+//   }
 //	}
 
 
@@ -143,17 +143,27 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 		$scope.user = found;
 		var test = [];
 		var restList = found.favorites;
-		for (var i =0; i < restList.length; i++) {
-			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i]}));
+		for (var i = 0; i < restList.length; i++) {
+			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i] }));
 		}
-		$scope.favorites = test; 
+		$scope.favorites = test;
 		console.log(test);
 	});
 
 }]);
 
 myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
-   $scope.dataNow = function() {
-		
-   }
+	$scope.dataNow = function () {
+
+		$http.get('data/starter.json').then(function (response) {
+			var d = new Date();
+			var now = d.getTime();
+			//console.log(moment().format('dddd'));
+			//console.log(moment().format('LT'));
+			var data = response.data;
+			var search = data.restaurants;
+			console.log(_.filter(search, 'happyHours')); 
+			
+		});
+	}
 }]);
