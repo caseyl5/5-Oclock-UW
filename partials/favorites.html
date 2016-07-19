@@ -1,7 +1,7 @@
 <body ng-controller="FavCtrl">
     <h1>{{user.firstName}} {{user.lastName}}'s Favorties</h1>
     <section id="favorites" class="container-fluid">
-        <div class="col-md-6 col-lg-3" ng-repeat="favorite in favorites">
+        <div class="col-lg-6" ng-repeat="favorite in favorites">
             <h3>{{favorite.name}}</h3>
             <h4>{{favorite.description}}</h4>
             <p>Sunday: {{favorite.happyHours[0]}}</p>

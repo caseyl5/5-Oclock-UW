@@ -34,6 +34,17 @@
 -->
 
 <main ng-controller="TimeCtrl">
-    <h1>When is happy hour?</h1>
-    <h2><button type="button" class="btn btn-primary" ng-click="dataNow()">NOW</button></h2>
+
+    <body>
+        <h1>When is happy hour?</h1>
+        <h2><button type="button" class="btn btn-primary" ng-click="dataNow()">NOW</button></h2>
+        <section id="favorites" class="container-fluid">
+            <div class="col-lg-6" ng-repeat="option in options">
+                <h3>{{option.name}}</h3>
+                <h4>{{option.now}}</h4>
+                <h4>{{option.description}}</h4>
+            </div>
+        </section>
+    </body>
+
 </main>

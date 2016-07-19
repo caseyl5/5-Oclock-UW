@@ -67,9 +67,9 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 		}
 	});
 
-	$scope.signOut = function() {
+	$scope.signOut = function () {
 		console.log($scope.userId);
-   		Auth.$signOut();
+		Auth.$signOut();
 	};
 
 	$scope.signIn = function () {
@@ -148,7 +148,6 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i] }));
 		}
 		$scope.favorites = test;
-		console.log(test);
 	});
 
 }]);
@@ -157,14 +156,53 @@ myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
 	$scope.dataNow = function () {
 
 		$http.get('data/starter.json').then(function (response) {
-			var d = new Date();
-			var now = d.getTime();
-			//console.log(moment().format('dddd'));
-			//console.log(moment().format('LT'));
+			//  console.log(moment().format('dddd'));
+			//	var how = moment().format('LT');
 			var data = response.data;
 			var search = data.restaurants;
-			console.log(_.filter(search, 'happyHours')); 
-			
+
+			var toAdd = [];
+
+			for (var i = 0; i < search.length; i++) {
+				var hours = search[i].happyHours
+				var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+				var index = days.indexOf("Monday"); // pass in desired day 
+				var now = 22;
+
+				var context = [];
+				if (hours != undefined) {
+					var snap = hours[index].replace(/-|" "|and/g, "");
+					var boom = snap.replace(/ /g, "");
+					var times = boom.split('m');
+					times.splice(-1, 1);
+					for (var j = 0; j < times.length; j++) {
+						var res = times[j].substring(0, times[j].indexOf(":"));
+						var add = Number(res);
+						if (times[j].indexOf('p') > -1) {
+							add += 12;
+						}
+						context.push(add);
+					}
+				}
+				if (isHappyHour(context, now)) {
+					search[i].now = search[i].happyHours[index]; 
+					toAdd.push(search[i]); 
+				}
+			}
+			$scope.options = toAdd;
 		});
 	}
 }]);
+
+
+function isHappyHour(tested, time) {
+	if (time >= tested[0] && time <= tested[1]) {
+		return true;
+	} else if (tested.length > 2) {
+		if (time >= tested[2] && time <= tested[3]) {
+			return true;
+		}
+	} else {
+		return false;
+	}
+}
