@@ -17,12 +17,9 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
-<<<<<<< HEAD
 #signup, #login {
   margin-top: 10px;
 }
-
-=======
 
 header {
     background-color: darkgrey;
@@ -30,4 +27,4 @@ header {
 #new {
     color: black;
 }
->>>>>>> b2bbb72a05710c3c7eddcb3cf392b9930b1e6d8b
+
