@@ -1,44 +1,44 @@
- <main class='container-fluid'>
+ <main class='container-fluid login'>
      <form>
         <h4>Log In</h4>
         <div>
             <label>Email: <label>
         </div>
-        <input type='email' placeholder='Email Address'></input>
+        <input type='email' placeholder='Email Address' ng-model="newUser.LogEmail" required></input>
         
         <div>
             <label>Password: <label>
         </div>
-        <input type='text' placeholder='Password'></input>
+        <input type='text' placeholder='Password' ng-model='newUser.LogPass' required></input>
         <div>
-            <button id='login' type='button'>Log In!</button>
+            <button id='login' type='button' ng-click="signIn()">Log In!</button>
         </div>
     </form>
 
-     <form class='signform'>
+     <form>
          <h4>Sign Up</h4>
         <div>
             <label>Username: <label>
         </div>
-        <input type='text' placeholder='Username'></input>
+        <input type='text' placeholder='Username' ng-model="newUser.username" required></input>
     
         <div>
             <label>Email: <label>
         </div>
-        <input type='email' placeholder='Email Address'></input>
+        <input type='email' placeholder='Email Address' ng-model="newUser.email" required></input>
         
         <div>
             <label>Password: <label>
         </div>
-        <input type='text' placeholder='Password'></input>
+        <input type='text' placeholder='Password' ng-model="newUser.password" required></input>
         
         <div>
             <label>Confirm Password: <label>
         </div>
-        <input type='text' placeholder='Password'></input>
+        <input type='text' placeholder='Password' ng-model="newUser.confirm" required></input>
         
         <div>
-            <button id='signup' type='button'>Sign Up!</button>
+            <button id='signup' type='button' ng-click="signUp()">Sign Up!</button>
         </div>
     </form>
 </main>
