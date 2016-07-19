@@ -20,10 +20,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			templateUrl: 'partials/locator.html',
 			controller: 'TimeCtrl'
 		})
-        .state('blog', {
+        .state('newDeal', {
 			url: '/blog',
 			templateUrl: 'partials/blog.html',
-			controller: 'HourCtrl'
+			controller: 'addCtrl'
 		})
         .state('favorites', {
 			url: '/favorites',
@@ -79,6 +79,11 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 			})
 	};
 }]);
+
+//controller for adding feature
+myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
+
+}])
 
 
 myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
