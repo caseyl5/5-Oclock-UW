@@ -35,6 +35,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 
 
 
+
 	$urlRouterProvider.otherwise('/home');
 }]);
 
@@ -115,7 +116,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 		}
 
 		$scope.favorites = test;
-
+		$scope.deals = data.deals; 
 	});
 
 }]);
