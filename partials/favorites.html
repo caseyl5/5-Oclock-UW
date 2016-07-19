@@ -1,16 +1,16 @@
-<div class="container-fluid">
-
-    <body ng-controller="FavCtrl">
-        <h3>{{user.firstName}} {{user.lastName}}'s Favorties</h3>
-        <section class="container-fluid">
-            <div class="col-md-6 col-lg-3" ng-repeat="favorite in favorites">
-                <h3>{{favorite.name}}</h3>
-                <div ng-repeat="deal in favorite.deal">
-                    {{deal.description}}
-                    <div ng-repeat="hours in deal">
-                        {{hours}}
-                    </div> 
-                </div>
-        </section>
-    </body>
-    </div>
+<body ng-controller="FavCtrl">
+    <h1>{{user.firstName}} {{user.lastName}}'s Favorties</h1>
+    <section id="favorites" class="container-fluid">
+        <div class="col-md-6 col-lg-3" ng-repeat="favorite in favorites">
+            <h3>{{favorite.name}}</h3>
+            <h4>{{favorite.description}}</h4>
+            <p>Sunday: {{favorite.happyHours[0]}}</p>
+            <p>Monday: {{favorite.happyHours[1]}}</p>
+            <p>Tuesday: {{favorite.happyHours[2]}}</p>
+            <p>Wednesday: {{favorite.happyHours[3]}}</p>
+            <p>Thursday: {{favorite.happyHours[4]}}</p>
+            <p>Friday: {{favorite.happyHours[5]}}</p>
+            <p>Saturday: {{favorite.happyHours[6]}}</p>
+        </div>
+    </section>
+</body>

@@ -4,149 +4,46 @@
             "restaurantId": "restaurant-id-1",
             "name": "Finn MacCool's",
             "website": "http://www.finnmaccools.com/",
-            "deal": [
-                {
-                    "dealId": "deal-id-1",
-                    "hours": {
-                        "Sunday": [
-                            16,
-                            19
-                        ],
-                        "Monday": [
-                            16,
-                            19
-                        ],
-                        "Tuesday": [
-                            16,
-                            19
-                        ],
-                        "Wednesday": [
-                            16,
-                            19
-                        ],
-                        "Thursday": [
-                            16,
-                            19
-                        ],
-                        "Friday": [
-                            16,
-                            19
-                        ],
-                        "Saturday": [
-                            16,
-                            19
-                        ]
-                    },
-                    "description": "$3 Wine $4 Wells $4 Micro Brews $5 Appetizers $3 off any pizza"
-                }
-            ]
+            "happyHours": [
+                "4:00pm-7:00pm",
+                "4:00pm-7:00pm",
+                "4:00pm-7:00pm",
+                "4:00pm-7:00pm",
+                "4:00pm-7:00pm",
+                "4:00pm-7:00pm",
+                "4:00pm-7:00pm"
+            ],
+            "description": "$3 Wine $4 Wells $4 Micro Brews $5 Appetizers $3 off any pizza"
         },
         {
             "restaurantId": "restaurant-id-2",
             "name": "Eureka",
             "website": "https://uvillage.com/eureka/",
-            "deal": [
-                {
-                    "dealId": "deal-id-1",
-                    "hours": {
-                        "Sunday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ],
-                        "Monday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ],
-                        "Tuesday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ],
-                        "Wednesday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ],
-                        "Thursday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ],
-                        "Friday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ],
-                        "Saturday": [
-                            14,
-                            18,
-                            21,
-                            24
-                        ]
-                    },
-                    "description": "Half price appetizers Craft Brews $3-$5"
-                }
-            ]
+            "happyHours": [
+                "2:00pm-6:00pm and 9:00pm-11:00pm",
+                "2:00pm-6:00pm and 9:00pm-11:00pm",
+                "2:00pm-6:00pm and 9:00pm-11:00pm",
+                "2:00pm-6:00pm and 9:00pm-11:00pm",
+                "2:00pm-6:00pm and 9:00pm-11:00pm",
+                "2:00pm-6:00pm and 9:00pm-11:00pm",
+                "2:00pm-6:00pm and 9:00pm-11:00pm"
+            ],
+            "description": "Half price appetizers Craft Brews $3-$5"
         },
         {
             "restaurantId": "restaurant-id-3",
             "name": "Mamma Melina",
             "website": "http://mammamelina.com/index.php",
-            "deal": [
-                {
-                    "dealId": "deal-id-3",
-                    "restaurantId": "restaurant-id-3",
-                    "hours": {
-                        "Sunday": [
-                            11.5,
-                            23
-                        ],
-                        "Monday": [
-                            11.5,
-                            23
-                        ],
-                        "Tuesday": [
-                            15,
-                            19,
-                            21,
-                            23
-                        ],
-                        "Wednesday": [
-                            15,
-                            19,
-                            21,
-                            23
-                        ],
-                        "Thursday": [
-                            15,
-                            19,
-                            21,
-                            23
-                        ],
-                        "Friday": [
-                            15,
-                            19,
-                            21,
-                            23
-                        ],
-                        "Saturday": [
-                            15,
-                            19,
-                            21,
-                            23
-                        ]
-                    },
-                    "description": "Classic Plates $3-$9, Wine Bottles $15, Speciality Cocktails $5"
-                }
-            ]
+            "happyHours": [
+                "11:30am-11:00pm",
+                "11:30am-11:00pm",
+                "3:00pm-7:00pm and 9:00pm-11:00pm",
+                "3:00pm-7:00pm and 9:00pm-11:00pm",
+                "3:00pm-7:00pm and 9:00pm-11:00pm",
+                "3:00pm-7:00pm and 9:00pm-11:00pm",
+                "3:00pm-7:00pm and 9:00pm-11:00pm"
+            ],
+            "description": "Classic Plates $3-$9, Wine Bottles $15, Speciality Cocktails $5"
         },
         {
             "restaurantId": "restaurant-id-4",

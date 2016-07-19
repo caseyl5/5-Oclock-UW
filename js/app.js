@@ -86,11 +86,8 @@ myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
-		console.log(users[0].userId);
-		console.log(deals);
 		$scope.data = data;
 		$scope.rests = rest;
-		console.log(rest);
 	});
 
 }]);
@@ -150,6 +147,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i]}));
 		}
 		$scope.favorites = test; 
+		console.log(test);
 	});
 
 }]);
