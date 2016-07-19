@@ -102,21 +102,14 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 	// want data from user 1 
 	$http.get('data/starter.json').then(function (response) {
 		var data = response.data;
-		//var deals = data.deals;
-		//var users = data.users;
-		//var rest = data.restaurants;
-
 		var found = _.find(data.users, function (o) { return o.userId === "user-id-1" });
 		$scope.user = found;
 		var test = [];
 		var restList = found.favorites;
 		for (var i =0; i < restList.length; i++) {
 			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i]}));
-			console.log(test); 
 		}
-
-		$scope.favorites = test;
-		$scope.deals = data.deals; 
+		$scope.favorites = test; 
 	});
 
 }]);
