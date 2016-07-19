@@ -46,11 +46,8 @@ myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
 		var deals = data.deals;
 		var users = data.users;
 		var rest = data.restaurants;
-		console.log(users[0].userId);
-		console.log(deals);
 		$scope.data = data;
 		$scope.rests = rest;
-		console.log(rest);
 	});
 
 }]);
