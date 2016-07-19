@@ -110,6 +110,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i]}));
 		}
 		$scope.favorites = test; 
+		console.log(test);
 	});
 
 }]);
