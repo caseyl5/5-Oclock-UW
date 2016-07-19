@@ -38,6 +38,12 @@
     <body>
         <h1>When is happy hour?</h1>
         <h2><button type="button" class="btn btn-primary" ng-click="dataNow()">NOW</button></h2>
+        <h3> LATER
+            <form name = "dateSearch">
+                <input type="datetime-local" ng-model="dateSearch.date" name=chooseDate>
+                <button type="submit" class="btn btn-primary" ng-click="dataNow()"></button>
+            </form>
+        </h3>
         <section id="favorites" class="container-fluid">
             <div class="col-lg-6" ng-repeat="option in options">
                 <h3>{{option.name}}</h3>

@@ -154,7 +154,9 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 
 myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
 	$scope.dataNow = function () {
-
+		var tim = $scope.dateSearch.date;
+		console.log(tim);
+		 
 		$http.get('data/starter.json').then(function (response) {
 			//  console.log(moment().format('dddd'));
 			//	var how = moment().format('LT');
@@ -167,6 +169,7 @@ myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
 				var hours = search[i].happyHours
 				var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 				var index = days.indexOf("Monday"); // pass in desired day 
+				// date in hours 
 				var now = 22;
 
 				var context = [];
