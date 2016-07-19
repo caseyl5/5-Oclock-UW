@@ -20,11 +20,16 @@ table tr:nth-child(even) {
 #signup, #login {
   margin-top: 10px;
 }
-
 header {
     background-color: darkgrey;
 }
 #new {
     color: black;
+}
+.login {
+    background: url('https://media.timeout.com/images/100519023/image.jpg') !important;
+}
+form {
+    color: darkgoldenrod;
 }
 
