@@ -17,11 +17,11 @@
   </form>
 <table class="table">
 		<tr>
-			<th ng-click="sortBy(name)" scope="col">Name</th>
-			<th ng-click="sortBy(website)">Website</th>
+			<th scope="col" ng-click="sortBy('name')">Name</th>
+			<th scope="col" ng-click="sortBy('website')">Website</th>
 		</tr>
 		<tr ng-repeat="rest in rests | orderBy: ordering | filter:searchTerm">
 			<td ui-sref="locator( {'rest':rest.name} )">{{rest.name}}</td>
-			<td>{{rest.website}}</td>
+			<td >{{rest.website}}</td>
 	</table>
 </div>
