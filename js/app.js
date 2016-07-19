@@ -68,6 +68,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 	});
 
 	$scope.signOut = function() {
+		console.log($scope.userId);
    		Auth.$signOut();
 	};
 

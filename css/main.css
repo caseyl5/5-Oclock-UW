@@ -37,3 +37,6 @@ section {
 #favorites div {
   background-color: lightgray;
 }
+#signout {
+  margin-top: 10px;
+}
