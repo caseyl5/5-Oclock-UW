@@ -18,7 +18,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
         .state('locator', {
 			url: '/locator:rest',
 			templateUrl: 'partials/locator.html',
-			controller: 'HourCtrl'
+			//controller: 'HourCtrl'
 		})
         .state('blog', {
 			url: '/blog',
@@ -53,25 +53,25 @@ myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 //Controller for detail page
-myApp.controller('HourCtrl', ['$scope', function ($scope) {
+//myApp.controller('HourCtrl', ['$scope', function ($scope) {
 
-	$scope.commentList = feedback.comments;
+//	$scope.commentList = feedback.comments;
 	//function for submitting comment 
-	$scope.submitComment = function () {
+//	$scope.submitComment = function () {
 
-	}
+//	}
 
 	//sort the feedbacks in order
-	$scope.sort = function (order) {
-		if ($scope.ordering == order) {
-            $scope.ordering = '-' + order;
-        } else {
-            $scope.ordering = order;
-        }
-	}
+//	$scope.sort = function (order) {
+//		if ($scope.ordering == order) {
+  //          $scope.ordering = '-' + order;
+    //    } else {
+     //       $scope.ordering = order;
+     //   }
+//	}
 
 
-}])
+//}])
 
 //storing the feedback
 myApp.factory('commentService', function () {
