@@ -153,5 +153,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
-   
+   $scope.dataNow = function() {
+		
+   }
 }]);
