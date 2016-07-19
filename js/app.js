@@ -18,7 +18,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
         .state('locator', {
 			url: '/locator:rest',
 			templateUrl: 'partials/locator.html',
-			//controller: 'HourCtrl'
+			controller: 'TimeCtrl'
 		})
         .state('blog', {
 			url: '/blog',
@@ -150,4 +150,8 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 		console.log(test);
 	});
 
+}]);
+
+myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
+   
 }]);
