@@ -1,7 +1,7 @@
 <main>
     <div class="container-fluid">
         <h2>Add New Happy Hours :D</h2>
-        <form name = "addDetail">
+        <form name= "addDetail" ng-if="signedIn">
             <div class="from-group">
                 <label for="name">Restaurant name:</label>
                 <input type="text" name="name" id= "name" ng-model="name" required>

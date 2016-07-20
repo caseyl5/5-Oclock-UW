@@ -82,7 +82,11 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 
 //controller for adding feature
 myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
-
+	var Auth = $firebaseAuth();
+	var baseRef = firebase.database().ref();
+	var usersRef = baseRef.child('users');
+	
+	$scope.checkStatus = function()
 }])
 
 
