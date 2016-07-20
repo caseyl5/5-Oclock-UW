@@ -101,13 +101,15 @@ myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', funct
 	var happyHour = $firebaseObject(restaurants);
 
 }])
-
-myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
+var test;
+myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
 	//firebase access working
 	var baseRef = firebase.database().ref();
-	var restaurants = baseRef.child('test');
-	var happyHour = $firebaseObject(restaurants);
+	var restaurants1 = baseRef.child('restaurants');
+	var happyHour = $firebaseArray(restaurants1);
 	$scope.rests = happyHour;
+	console.log(happyHour);
+	test = happyHour;
 
 
 
@@ -156,19 +158,7 @@ myApp.factory('commentService', function () {
 // controller for the favorites page 
 // filters data based on user 
 myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $firebaseObject) {
-    // user data loaded from cloud in future version 
-	// want data from user 1 
-	$http.get('data/starter.json').then(function (response) {
-		var data = response.data;
-		var found = _.find(data.users, function (o) { return o.userId === "user-id-1" });
-		$scope.user = found;
-		var test = [];
-		var restList = found.favorites;
-		for (var i = 0; i < restList.length; i++) {
-			test.push(_.find(data.restaurants, function (o) { return o.restaurantId === restList[i] }));
-		}
-		$scope.favorites = test;
-	});
+    
 
 }]);
 
