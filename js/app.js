@@ -96,6 +96,7 @@ myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseArray', func
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseArray(restaurants);
 	
+	//adding new deal
 	$scope.newDeal = function (resName, happyTime, description, website) {
 		var timeList = happyTime.split(",");
 		var weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];

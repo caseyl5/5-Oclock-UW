@@ -56,3 +56,9 @@ section {
   color: lightgray;
   font-weight: 350;
 }
+
+#dealFormat {
+  background-color: orange;
+  color: blue;
+  max-width: 53%;
+}
