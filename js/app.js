@@ -37,8 +37,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 
 
 
-
-
 	$urlRouterProvider.otherwise('/home');
 }]);
 
@@ -92,15 +90,35 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 }]);
 
 //controller for adding feature
-myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
+myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
 	$scope.userId = globalUserID;
-	var Auth = $firebaseAuth();
-	$scope.newUser = {};
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
-	var happyHour = $firebaseObject(restaurants);
-
+	var happyHour = $firebaseArray(restaurants);
+	
+	//adding new deal
+	$scope.newDeal = function (resName, happyTime, description, website) {
+		var timeList = happyTime.split(",");
+		var weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		angular.forEach(timeList, function(dealTime, index) {
+			var duration = dealTime.split("|");
+			timeList[index] = {
+				day: weekdays[duration[0] - 1],
+				start: duration[1],
+				end: duration[2]
+			}
+		});
+		restaurants.push({
+			description: description,
+			happyHours: timeList,
+			name: resName,
+			restaurantId: "restaurant-id-" +　happyHour.length,
+			website: website
+		})
+		
+	}
 }])
+
 var test;
 myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
 	//firebase access working
@@ -111,48 +129,7 @@ myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseArray', function ($sc
 	console.log(happyHour);
 	test = happyHour;
 
-
-
 }]);
-
-//Controller for detail page
-//myApp.controller('HourCtrl', ['$scope', function ($scope) {
-
-//	$scope.commentList = feedback.comments;
-//function for submitting comment 
-//	$scope.submitComment = function () {
-
-//	}
-
-//sort the feedbacks in order
-//	$scope.sort = function (order) {
-//		if ($scope.ordering == order) {
-//          $scope.ordering = '-' + order;
-//    } else {
-//       $scope.ordering = order;
-//   }
-//	}
-
-
-//}])
-
-//storing the feedback
-myApp.factory('commentService', function () {
-	var feedback = {};
-
-	if (localStorage.comments !== undefined) {
-		feedback.comments = JSON.parse(localStorage.comments);
-	} else {
-		feedback.comments = [];
-	}
-
-	feedback.addComment = function (comment) {
-		feedback.comments.push(comment);
-		localStorage.comments = JSON.stringify(feedback.comments);
-	};
-
-	return feedback;
-});
 
 
 // controller for the favorites page 

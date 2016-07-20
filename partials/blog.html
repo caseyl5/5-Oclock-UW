@@ -11,23 +11,25 @@
                 <label for="name">Restaurant name:</label>
                 <input type="text" name="name" id= "name" ng-model="name" required>
             </div>
+            <br>
             
-            <div class="from-group">
-                <label for="resId">Restaurant ID:</label>
-                <input type="resId" name="resId" id= "resId" ng-model="resId" required>
-            </div>
-
             <div class="from-group">
                 <label for="time">Happy Hours:</label>
                 <input type="text" name="time" id= "time" ng-model="time" required>
+                <p id="dealFormat">write in the format of day(1-7) |start time(0-23) |end time(0-23), seperate different happy hours with comma</p>
             </div>
-
+            <br>
             <div class="from-group">
                 <label for="description">Description:</label>
                 <input type="text" name="description" id= "description" ng-model="description" required>
             </div>
-
-            <button type="submit" class="btn btn-primary" ng-disabled="addDetail.$invalid" ng-click="">Add the Deal</button>
+            <br>
+            <div class="from-group">
+                <label for="website">Website:</label>
+                <input type="text" name="website" id= "website" ng-model="website" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" ng-disabled="addDetail.$invalid" ng-click="newDeal(name, time, description, website)">Add the Deal</button>
         </form>
 
 
