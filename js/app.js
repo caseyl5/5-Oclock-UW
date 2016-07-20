@@ -91,10 +91,11 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 }]);
 
 //controller for adding feature
-myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseObject, $firebaseAuth) {
+myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
 	$scope.userId = globalUserID;
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
+	var happyHour = $firebaseArray(restaurants);
 	
 	
 	//adding new deal
