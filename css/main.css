@@ -1,4 +1,4 @@
- #home {
+ #all {
     background: url('https://media.timeout.com/images/100519023/image.jpg') !important;
     color: darkgoldenrod;
 }
@@ -21,9 +21,7 @@ table tr:nth-child(even) {
 #signup, #login {
   margin-top: 10px;
 }
-footer {
-      background: url('http://downloadicons.net/sites/default/files/beer-icon-6248.png');
-}
+
 #new {
     color: black;
 }
