@@ -163,7 +163,12 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $fireba
 }]);
 
 
-myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
+myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
+	var baseRef = firebase.database().ref();
+	var restaurants1 = baseRef.child('restaurants');
+	var happyHour = $firebaseArray(restaurants1);
+	$scope.rests = happyHour;
+	console.log(happyHour);
 
 }]);
 
