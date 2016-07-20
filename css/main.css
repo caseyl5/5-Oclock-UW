@@ -38,3 +38,21 @@ section {
   color: darkgoldenrod;
 }
 
+.timing, #selectOpen {
+  text-align: center;
+}
+
+#timeSelect {
+  background-color: lightgrey;
+}
+
+.timing {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+#selectOpen {
+  background-color: rebeccapurple;
+  color: lightgray;
+  font-weight: 350;
+}

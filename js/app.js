@@ -135,17 +135,42 @@ myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseArray', function ($sc
 // controller for the favorites page 
 // filters data based on user 
 myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $firebaseObject) {
-    
+
 
 }]);
 
 
 myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
 	var baseRef = firebase.database().ref();
-	var restaurants1 = baseRef.child('restaurants');
-	var happyHour = $firebaseArray(restaurants1);
+	var restaurants = baseRef.child('restaurants');
+	var happyHour = $firebaseArray(restaurants);
+
+	var watch = new Date(); // either given time or current time 
+	//	var time = watch.getHours(); // returns hour number
+
+
+	//	var day = moment().format('dddd'); // returns name of day current time in testing
+	var time = 4;
+	var day = "Friday";
+
 	$scope.rests = happyHour;
 	console.log(happyHour);
+	$scope.timeFilter = function (place) {
+		if (isHappyHour(time, day, place.happyHours)) {
+			return true;
+		}
+	};
+
 
 }]);
 
+// helper function that accepts a time in hours (0-23), a day by its name and an array of happy hours
+// returns true if restaurant's happy hour is within the user desired day and time 
+function isHappyHour(time, day, range) {
+	for (var i = 0; i < range.length; i++) {
+		if (range[i].day === day && (time >= range[i].start && time < range[i].end)) {
+			return true;
+		}
+	}
+
+};
