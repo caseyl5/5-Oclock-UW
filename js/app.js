@@ -173,5 +173,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $fireba
 }]);
 
 
+myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
+
 }]);
 
