@@ -19,7 +19,7 @@
         <button type="button" ng-click="signOut()" ng-if="userId">Sign Out!</button>
     </div>
 
-     <form>
+     <form ng-if="!userId">
          <h4>Sign Up</h4>
         <div>
             <label>Username: <label>
