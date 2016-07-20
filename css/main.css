@@ -93,8 +93,7 @@ body {
 #selectHead {
   text-transform: uppercase;
   color: white;
-  font-weight: 50;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 #selectOpen {
@@ -128,12 +127,33 @@ body {
 }
 .input { vertical-align: top; } 
 
+@media (min-width: 500px) {
+  #selectHead {
+    font-size: 2.3em;
+  }
+}
+
+
 @media (min-width: 1200px) {
     .container{
         max-width: 1200px;
     }
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+@media (min-width: 1400px) {
+  .container{
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container{
+    max-width: 1800px;
+  }
+}
+>>>>>>> 9ee5585a2dcf2d837fd7adfba2fd51f7d8e22682
