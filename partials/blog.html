@@ -1,7 +1,25 @@
 <main>
     <div class="container-fluid">
         <h2>Add New Happy Hours :D</h2>
-        <form name = "addDetail">
+        
+        <form ng-if="!userId"> <!--ng-if="!userId"-->
+            <h4>Log In</h4>
+            <div>
+                <label>Email: <label>
+            </div>
+            <input type='email' placeholder='Email Address' ng-model="newUser.LogEmail" required></input>
+            
+            <div>
+                <label>Password: <label>
+            </div>
+            <input type='text' placeholder='Password' ng-model='newUser.LogPass' required></input>
+            <div>
+                <button id='login' type='button' ng-click="signIn()">Log In!</button>
+            </div>
+            <a ui-sref = "signUp">Don't have an account yet?</a>
+        </form>
+
+        <form name= "addDetail" ng-if="userId"> <!--ng-if="signedIn"-->
             <div class="from-group">
                 <label for="name">Restaurant name:</label>
                 <input type="text" name="name" id= "name" ng-model="name" required>
