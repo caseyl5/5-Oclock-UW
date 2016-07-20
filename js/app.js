@@ -91,7 +91,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 }]);
 
 //controller for adding feature
-myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function ($scope, $firebaseObject, $firebaseArray, $firebaseAuth) {
+myApp.controller('addCtrl', ['$window','$scope', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function ($window, $scope, $firebaseObject, $firebaseArray, $firebaseAuth) {
 	$firebaseAuth().$onAuthStateChanged(function (firebaseUser) {
 		if (firebaseUser) {
 			$scope.userId = firebaseUser.uid;
@@ -127,7 +127,11 @@ myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$fi
 			restaurantId: "restaurant-id-" +　happyHour.length,
 			website: website
 		})
-		
+		$scope.name = "";
+		$scope.time = "";
+		$scope.description = "";
+		$scope.website = "";
+		$window.location.reload();
 	}
 }])
 
