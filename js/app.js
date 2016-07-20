@@ -93,25 +93,22 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 
 //controller for adding feature
 myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
-
-}])
-
-
-myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
-    $http.get('data/starter.json').then(function (response) {
-		var data = response.data;
-		var deals = data.deals;
-		var users = data.users;
-		var rest = data.restaurants;
-		$scope.data = data;
-		$scope.rests = rest;
-	});
-
-	// How to access restaurants in firebase database
+	$scope.userId = globalUserID;
+	var Auth = $firebaseAuth();
+	$scope.newUser = {};
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseObject(restaurants);
-	console.log(happyHour);
+
+}])
+
+myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
+	//firebase access working
+	var baseRef = firebase.database().ref();
+	var restaurants = baseRef.child('test');
+	var happyHour = $firebaseObject(restaurants);
+	$scope.rests = happyHour;
+
 
 
 }]);
@@ -175,6 +172,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $fireba
 
 }]);
 
+<<<<<<< HEAD
 myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
 	// if now is selected for desired time 
 	$scope.nowTime = function () {
@@ -212,15 +210,35 @@ myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseObject', function ($s
 		var timeDo = Number(timeFormat);
 		var timeUse = timeDo + 12; // converts time into single number 
 
+=======
+myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
+	$scope.dataNow = function () {
+		var tim = $scope.dateSearch.date;
+		console.log(tim);
+		 
+>>>>>>> f2eeddf8ae539c8997a5a70f0129b603387db304
 		$http.get('data/starter.json').then(function (response) {
+			//  console.log(moment().format('dddd'));
+			//	var how = moment().format('LT');
 			var data = response.data;
 			var search = data.restaurants;
+<<<<<<< HEAD
 			//console.log(search); 
+=======
+
+>>>>>>> f2eeddf8ae539c8997a5a70f0129b603387db304
 			var toAdd = [];
+
 			for (var i = 0; i < search.length; i++) {
-				var hours = search[i].happyHours;
+				var hours = search[i].happyHours
 				var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+<<<<<<< HEAD
 				var index = days.indexOf(daySearch);
+=======
+				var index = days.indexOf("Monday"); // pass in desired day 
+				// date in hours 
+				var now = 22;
+>>>>>>> f2eeddf8ae539c8997a5a70f0129b603387db304
 
 				var context = [];
 				if (hours != undefined) {
@@ -237,9 +255,15 @@ myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseObject', function ($s
 						context.push(add);
 					}
 				}
+<<<<<<< HEAD
 				if (isHappyHour(context, timeUse)) {
 					search[i].now = search[i].happyHours[index];
 					toAdd.push(search[i]);
+=======
+				if (isHappyHour(context, now)) {
+					search[i].now = search[i].happyHours[index]; 
+					toAdd.push(search[i]); 
+>>>>>>> f2eeddf8ae539c8997a5a70f0129b603387db304
 				}
 			}
 			$scope.options = toAdd;

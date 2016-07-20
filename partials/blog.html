@@ -1,7 +1,12 @@
 <main>
     <div class="container-fluid">
         <h2>Add New Happy Hours :D</h2>
-        <form name = "addDetail">
+        
+        <form ng-if="!userId"> <!--ng-if="!userId"-->
+            <a ui-sref = "signUp">You need to sign in first.</a>
+        </form>
+
+        <form name= "addDetail" ng-if="userId"> <!--ng-if="signedIn"-->
             <div class="from-group">
                 <label for="name">Restaurant name:</label>
                 <input type="text" name="name" id= "name" ng-model="name" required>
