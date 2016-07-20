@@ -1,7 +1,7 @@
-#all {
+/*#all {
     background-image: url('https://media.timeout.com/images/100519023/image.jpg') !important;
     color: darkgoldenrod;
-}
+}*/
 
 #menu.li {
     color: black;
@@ -57,8 +57,9 @@ header, footer {
    background-color: rgba(0, 0, 0, 0.8);
 }
 
-#timeSelect {
-font-family: 'Open Sans', sans-serif;
+#when {
+font-family: 'Raleway', sans-serif;
+background-color: rgba(63, 50, 80, .8); 
 }
 
 
@@ -71,11 +72,24 @@ font-family: 'Open Sans', sans-serif;
   font-size: 45%;
 }
 
-#selectOpen {
-  background-image: url("../img/Udistrict.jpeg");
-  background-size: 320px 160px;
-}
-
 #selectOpen .container-fluid {
   background-color: rgba(255, 255, 255, 1);
+}
+
+#selectHead {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 50;
+}
+
+#findHappy {
+  background-color: #6BBAA7;
+}
+
+#timeOptions {
+  background-color: #B6A19E;
+}
+
+#currentList .col-lg-6 {
+  background-color: #B6A19E; 
 }
