@@ -59,7 +59,7 @@ header, footer {
 
 #when {
 font-family: 'Raleway', sans-serif;
-background-color: rgba(63, 50, 80, .8); 
+background-color: #57BC90;
 }
 
 
@@ -72,10 +72,6 @@ background-color: rgba(63, 50, 80, .8);
   font-size: 45%;
 }
 
-#selectOpen .container-fluid {
-  background-color: rgba(255, 255, 255, 1);
-}
-
 #selectHead {
   text-transform: uppercase;
   color: white;
@@ -83,13 +79,9 @@ background-color: rgba(63, 50, 80, .8);
 }
 
 #findHappy {
-  background-color: #6BBAA7;
+  background-color: #77C9D4;
 }
 
-#timeOptions {
-  background-color: #B6A19E;
-}
-
-#currentList .col-lg-6 {
-  background-color: #B6A19E; 
+#currentList .col-lg-6, #timeOptions {
+  background-color: #A5A5AF;
 }
