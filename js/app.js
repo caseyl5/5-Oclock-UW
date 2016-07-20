@@ -1,5 +1,8 @@
 'use strict';
 
+// For Phan, firebase UserID
+var globalUserID;
+
 var myApp = angular.module('HourApp', ['firebase', 'ngSanitize', 'ui.bootstrap', 'ui.router']);
 
 //configure routes
@@ -20,10 +23,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			templateUrl: 'partials/locator.html',
 			controller: 'TimeCtrl'
 		})
-        .state('blog', {
+        .state('newDeal', {
 			url: '/blog',
 			templateUrl: 'partials/blog.html',
-			controller: 'HourCtrl'
+			controller: 'addCtrl'
 		})
         .state('favorites', {
 			url: '/favorites',
@@ -46,6 +49,11 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 	var usersRef = baseRef.child('users');
 	$scope.users = $firebaseObject(usersRef);
 
+	// How To access restaurants in firebase
+	var restaurants = baseRef.child('restaurants');
+	var happyHour = $firebaseObject(restaurants);
+	console.log(happyHour);
+
 	$scope.signUp = function (data) {
 		Auth.$createUserWithEmailAndPassword($scope.newUser.email, $scope.newUser.confirm)
 			.then(function (firebaseUser) {
@@ -61,6 +69,8 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 	Auth.$onAuthStateChanged(function (firebaseUser) {
 		if (firebaseUser) {
 			$scope.userId = firebaseUser.uid;
+			globalUserID = firebaseUser.uid;
+			console.log(globalUserID);
 		}
 		else {
 			$scope.userId = undefined;
@@ -78,10 +88,16 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 				console.log(firebaseUser.uid);
 			})
 	};
+	
 }]);
 
+//controller for adding feature
+myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
 
-myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
+}])
+
+
+myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
     $http.get('data/starter.json').then(function (response) {
 		var data = response.data;
 		var deals = data.deals;
@@ -90,6 +106,13 @@ myApp.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
 		$scope.data = data;
 		$scope.rests = rest;
 	});
+
+	// How to access restaurants in firebase database
+	var baseRef = firebase.database().ref();
+	var restaurants = baseRef.child('restaurants');
+	var happyHour = $firebaseObject(restaurants);
+	console.log(happyHour);
+
 
 }]);
 
