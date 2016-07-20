@@ -153,25 +153,34 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
-	$scope.dataNow = function () {
-		var tim = $scope.dateSearch.date;
-		console.log(tim);
-		 
+
+	$scope.nowTime = function () {
+		var time = new Date();
+		getHappy(time);
+	}
+
+	$scope.laterTime = function () {
+		var time = $scope.dateSearch.date;
+		getHappy(time); 
+	}
+
+
+	 function getHappy(realTime) {
+		var daySearch = moment(realTime).format('dddd');
+		var timeSearch = moment(realTime).format('LT');
+		var timeFormat = timeSearch.substring(0, timeSearch.indexOf(":"));
+		var timeDo = Number(timeFormat);  
+		var timeUse = timeDo + 12; 
+
 		$http.get('data/starter.json').then(function (response) {
-			//  console.log(moment().format('dddd'));
-			//	var how = moment().format('LT');
 			var data = response.data;
 			var search = data.restaurants;
-
 			var toAdd = [];
-
 			for (var i = 0; i < search.length; i++) {
-				var hours = search[i].happyHours
+				var hours = search[i].happyHours;
 				var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-				var index = days.indexOf("Monday"); // pass in desired day 
-				// date in hours 
-				var now = 22;
-
+				var index = days.indexOf(daySearch);
+				
 				var context = [];
 				if (hours != undefined) {
 					var snap = hours[index].replace(/-|" "|and/g, "");
@@ -186,10 +195,10 @@ myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
 						}
 						context.push(add);
 					}
-				}
-				if (isHappyHour(context, now)) {
-					search[i].now = search[i].happyHours[index]; 
-					toAdd.push(search[i]); 
+				} 
+				if (isHappyHour(context, timeUse)) {
+					search[i].now = search[i].happyHours[index];
+					toAdd.push(search[i]);
 				}
 			}
 			$scope.options = toAdd;
