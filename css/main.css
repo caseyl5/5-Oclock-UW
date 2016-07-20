@@ -14,6 +14,8 @@ nav {
   color: white;
 }
 
+
+
 table, th , td {
   border: 1px solid grey;
   border-collapse: collapse;
@@ -124,9 +126,14 @@ body {
 #currentList .col-lg-6 {
   background-color: #B6A19E; 
 }
+.input { vertical-align: top; } 
 
 @media (min-width: 1200px) {
     .container{
         max-width: 1200px;
     }
 }
+
+
+
+
