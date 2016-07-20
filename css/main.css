@@ -6,14 +6,17 @@
 #menu.li {
     color: black;
 }
+
 table, th , td {
   border: 1px solid grey;
   border-collapse: collapse;
   padding: 5px;
 }
+
 table tr:nth-child(odd) {
   background-color: #f1f1f1;
 }
+
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
@@ -25,15 +28,18 @@ table tr:nth-child(even) {
 #new {
     color: black;
 }
+
 section {
   padding: 1em; 
 } 
+
 #favorites div {
   background-color: lightgray;
 }
 #signout {
   margin-top: 10px;
 }
+
 .linknav {
   color: darkgoldenrod;
 }
@@ -57,8 +63,8 @@ section {
   font-weight: 350;
 }
 
+#timeOptions {
 
-#timeOptions, .cards {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
@@ -72,6 +78,8 @@ header, footer {
 
 #timeSelect {
   font-family: Tahoma, Geneva, sans-serif;
+}
+
 
 #dealFormat {
   color: white;
