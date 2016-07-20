@@ -58,7 +58,7 @@ section {
 }
 
 #dealFormat {
-  background-color: orange;
-  color: blue;
-  max-width: 53%;
+  
+  color: white;
+  padding-top: 8px;
 }
