@@ -140,20 +140,4 @@ body {
     }
 }
 
-<<<<<<< HEAD
 
-
-
-=======
-@media (min-width: 1400px) {
-  .container{
-    max-width: 1400px;
-  }
-}
-
-@media (min-width: 1800px) {
-  .container{
-    max-width: 1800px;
-  }
-}
->>>>>>> 9ee5585a2dcf2d837fd7adfba2fd51f7d8e22682
