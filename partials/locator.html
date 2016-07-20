@@ -39,25 +39,20 @@
         <section id="selectOpen" class="container-fluid">
             <h1 id="selectHead">When is happy hour?</h1>
         </section>
-        
-        <section id="timeOptions">
-        <div class="row">
-            <div class="col-xs-5">
-                <h2 class="timing">NOW</h2>
 
-                <!--     <button type="button" class="btn btn-primary" ng-click="nowTime()"></button> -->
-            </div>
-            <div class="col-xs-2">
-                <h2 class="timing">OR</h2>
-            </div>
-            <div class="col-xs-5">
-                <h2 class="timing">LATER</h2>
-           <!--     <form name="dateSearch">
-                    <input type="datetime-local" ng-model="dateSearch.date" name=chooseDate>
-                    <button type="submit" class="btn btn-primary" ng-click="laterTime()"></button>
-                </form> -->
-            </div>
-        </div>
+        <section id="timeOptions">
+            <form ng-submit="submit()" class="form-inline" role="form" name="timeOptions">
+                 <div class="form-group">
+                    <input type="radio" name="time" value="now">
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="time" value="later" ng-model="checked">
+                    <input ng-show="checked" type="datetime-local" ng-model="date" name=chooseDate>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="submit" value="submit" class="btn btn-primary"></button>
+                </div>
+            </form>
         </section>
 
         <section id="currentList" class="container-fluid">

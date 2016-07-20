@@ -57,8 +57,8 @@ section {
   font-weight: 350;
 }
 
-<<<<<<< HEAD
-#timeOptions {
+
+#timeOptions, .cards {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
@@ -72,10 +72,12 @@ header, footer {
 
 #timeSelect {
   font-family: Tahoma, Geneva, sans-serif;
-=======
+
 #dealFormat {
-  
   color: white;
   padding-top: 8px;
->>>>>>> f5de77580c9b54f59872066f04397ce54f904139
+}
+
+#selectOpen, #currentList {
+  background-color: rgba(59, 59, 59, .9);
 }

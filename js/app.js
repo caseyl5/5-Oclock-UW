@@ -141,17 +141,29 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $fireba
 
 
 myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
+	var time = 0;
+	var day = ""; 
+	$scope.submit = function() {
+		var userDate = $scope.date;
+		if (userDate == null) {
+			userDate = new Date();
+		}
+		day = moment(userDate).format('dddd');
+		time = userDate.getHours();
+	}
+	
+	
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseArray(restaurants);
 
-	var watch = new Date(); // either given time or current time 
+	//var watch = new Date(); // either given time or current time 
 	//	var time = watch.getHours(); // returns hour number
-
+	//time 
 
 	//	var day = moment().format('dddd'); // returns name of day current time in testing
-	var time = 4;
-	var day = "Friday";
+	//var time = 4;
+	//var day = "Friday";
 
 	$scope.rests = happyHour;
 	console.log(happyHour);
