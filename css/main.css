@@ -1,7 +1,7 @@
-/*#all {
-    background-image: url('https://media.timeout.com/images/100519023/image.jpg') !important;
-    color: darkgoldenrod;
-}*/
+#all {
+  background-color: floralwhite;
+  color: lightslategray
+}
 
 nav {
   position: fixed;
@@ -69,7 +69,7 @@ section {
 }
 
 #timeOptions {
-  background-color: #A5A5AF;
+  background-color: silver;
   padding: 0;
 }
 
@@ -97,7 +97,7 @@ body {
 }
 
 #selectOpen {
-  background-color:#6C648B;
+  background-color: lightslategray;
 }
 
 #pickNow, #pickLater {
@@ -123,7 +123,7 @@ body {
 }
 
 #currentList .col-lg-6 {
-  background-color: #B6A19E; 
+  background-color: lightslategray; 
 }
 .input { vertical-align: top; } 
 
@@ -141,6 +141,10 @@ body {
 }
 .homeFilter {
   margin-bottom: 1em;
+}
+.options {
+  color: white;
+  padding: 3px;
 }
 
 

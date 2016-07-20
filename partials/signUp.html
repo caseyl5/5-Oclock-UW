@@ -1,5 +1,5 @@
  <main class='container-fluid'>
-     <form ng-if="!userId">
+     <form ng-if="!userId" class="form-group">
         <h4>Log In</h4>
         <div>
             <label>Email: <label>
@@ -19,7 +19,7 @@
         <button type="button" ng-click="signOut()" ng-if="userId">Sign Out!</button>
     </div>
 
-     <form ng-if="!userId">
+     <form ng-if="!userId" class="form-group">
          <h4>Sign Up</h4>
         <div>
             <label>Username: <label>
