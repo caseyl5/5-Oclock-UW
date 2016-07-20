@@ -34,8 +34,13 @@
     <section id="currentList" class="container">
         <h3>Now showing happy hours at {{happy}}</h3>
         <div class="col-lg-6" ng-repeat="rest in rests | filter:timeFilter">
-            <h3>{{rest.name}}</h3>
-            <h4>{{rest.description}}</h4>
+            <p id="placeTitle">{{rest.name}}</p>
+            <p id="descriptionTitle">{{rest.description}}</p>
+            <ul>
+                <li ng-repeat="pick in rest.happyHours | filter:rangeFilter">
+                   <p>{{pick.start | formatTime}} to {{pick.end | formatTime}}</p>
+                </li>
+            </ul>
         </div>
     </section>
 

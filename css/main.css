@@ -148,3 +148,7 @@ body {
     max-width: 1800px;
   }
 }
+
+#placeTitle {
+  font-weight: bold; 
+}

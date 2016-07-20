@@ -140,7 +140,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $fireba
 
 }]);
 
-
+// reoponsible for finding restaurants based on certain inputs 
 myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
 	var time = 0;
 	var day = ""; 
@@ -158,11 +158,14 @@ myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($sc
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseArray(restaurants);
-	
-	
 	$scope.rests = happyHour;
 	$scope.timeFilter = function (place) {
 		if (isHappyHour(time, day, place.happyHours)) {
+			return true;
+		}
+	};
+	$scope.rangeFilter = function(snap) {
+		if (snap.day == day) {
 			return true;
 		}
 	};
@@ -176,5 +179,15 @@ function isHappyHour(time, day, range) {
 			return true;
 		}
 	}
-
 };
+
+// formats 0 -23 hours to time of day 
+myApp.filter('formatTime', function(){
+	return function(input) {
+		if (input > 12) {
+			return input - 12 + ":00pm";
+		}  else {
+			return input + ":00am";
+		}
+	}
+});
