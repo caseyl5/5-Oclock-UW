@@ -74,6 +74,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 		}
 		else {
 			$scope.userId = undefined;
+			globalUserID = undefined;
 		}
 	});
 
@@ -92,12 +93,28 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 }]);
 
 //controller for adding feature
-myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', function ($scope, $firebaseAuth, $firebaseObject) {
-	var Auth = $firebaseAuth();
-	var baseRef = firebase.database().ref();
-	var usersRef = baseRef.child('users');
-	
-	$scope.checkStatus = function()
+myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', '$window', function ($scope, $firebaseAuth, $firebaseObject, $window) {
+	$scope.userId = globalUserID;
+
+	$scope.signIn = function () {
+		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
+			.then(function (firebaseUser) {
+				console.log(firebaseUser.uid);
+			})
+		$window.location.reload();
+	};
+
+	Auth.$onAuthStateChanged(function (firebaseUser) {
+		if (firebaseUser) {
+			$scope.userId = firebaseUser.uid;
+			globalUserID = firebaseUser.uid;
+			console.log(globalUserID);
+		}
+		else {
+			$scope.userId = undefined;
+			globalUserID = undefined;
+		}
+	});
 }])
 
 
