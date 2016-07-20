@@ -96,18 +96,8 @@ myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', funct
 
 }])
 
-var happy;
 myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
-    /*$http.get('data/starter.json').then(function (response) {
-		var data = response.data;
-		var deals = data.deals;
-		var users = data.users;
-		var rest = data.restaurants;
-		$scope.data = data;
-		$scope.rests = rest;
-	});*/
-
-	// How to access restaurants in firebase database
+	//firebase access working
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('test');
 	var happyHour = $firebaseObject(restaurants);
