@@ -20,7 +20,7 @@
 			<th scope="col" ng-click="sortBy('name')">Name</th>
 			<th scope="col" ng-click="sortBy('website')">Website</th>
 		</tr>
-		<tr ng-repeat="rest in rests | orderBy: ordering | filter:searchTerm">
+		<tr ng-repeat="rest in rests.restaurants | orderBy: ordering | filter:searchTerm">
 			<td ui-sref="locator( {'rest':rest.name} )">{{rest.name}}</td>
 			<td >{{rest.website}}</td>
 	</table>
