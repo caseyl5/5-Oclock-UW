@@ -101,21 +101,20 @@ myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseArray', func
 		var weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 		angular.forEach(timeList, function(dealTime, index) {
 			var duration = dealTime.split("|");
-
 			timeList[index] = {
 				day: weekdays[duration[0] - 1],
-				start: moment(duration[1]).format("HH:mm"),
-				end: moment(duration[2]).format("HH:mm")
+				start: duration[1],
+				end: duration[2]
 			}
 		});
-		happyHour.push({
+		restaurants.push({
 			description: description,
 			happyHours: timeList,
 			name: resName,
 			restaurantId: "restaurant-id-" +　happyHour.length,
 			website: website
 		})
-		restaurants = happyHour;
+		
 	}
 }])
 
