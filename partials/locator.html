@@ -39,6 +39,8 @@
         <section id="selectOpen" class="container-fluid">
             <h1 id="selectHead">When is happy hour?</h1>
         </section>
+        
+        <section id="timeOptions">
         <div class="row">
             <div class="col-xs-5">
                 <h2 class="timing">NOW</h2>
@@ -50,12 +52,14 @@
             </div>
             <div class="col-xs-5">
                 <h2 class="timing">LATER</h2>
-                <form name="dateSearch">
+           <!--     <form name="dateSearch">
                     <input type="datetime-local" ng-model="dateSearch.date" name=chooseDate>
                     <button type="submit" class="btn btn-primary" ng-click="laterTime()"></button>
-                </form>
+                </form> -->
             </div>
         </div>
+        </section>
+
         <section id="currentList" class="container-fluid">
             <div class="col-lg-6" ng-repeat="rest in rests | filter:timeFilter">
                 <h3>{{rest.name}}</h3>

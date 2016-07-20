@@ -47,12 +47,28 @@ section {
 }
 
 .timing {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 500;
 }
 
 #selectOpen {
-  background-color: rebeccapurple;
+  background-color: rgba(59, 59, 59, .9);
   color: lightgray;
   font-weight: 350;
+}
+
+#timeOptions {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+#timeSelect section {
+  padding-bottom: 1.8em;
+}
+
+header, footer {
+   background-color: rgba(0, 0, 0, 0.8);
+}
+
+#timeSelect {
+  font-family: Tahoma, Geneva, sans-serif;
 }
