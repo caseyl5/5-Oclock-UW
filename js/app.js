@@ -3,7 +3,7 @@
 // For Phan, firebase UserID
 var globalUserID;
 
-var myApp = angular.module('HourApp', ['firebase', 'ngSanitize', 'ui.bootstrap', 'ui.router']);
+var myApp = angular.module('HourApp', ['firebase', 'ngSanitize', 'ui.bootstrap', 'ui.router', 'angular.filter']);
 
 //configure routes
 myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
