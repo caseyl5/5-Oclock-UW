@@ -35,19 +35,30 @@
 
 <main ng-controller="TimeCtrl">
 
-    <body>
-        <h1>When is happy hour?</h1>
-        <h2><button type="button" class="btn btn-primary" ng-click="nowTime()">NOW</button></h2>
-        <h3> LATER
-            <form name = "dateSearch">
-                <input type="datetime-local" ng-model="dateSearch.date" name=chooseDate>
-                <button type="submit" class="btn btn-primary" ng-click="laterTime()"></button>
-            </form>
-        </h3>
-        <section id="favorites" class="container-fluid">
-            <div class="col-lg-6" ng-repeat="rest in rests">
+    <body id="timeSelect">
+        <section id="selectOpen" class="container-fluid">
+            <h1 id="selectHead">When is happy hour?</h1>
+        </section>
+        <div class="row">
+            <div class="col-xs-5">
+                <h2 class="timing">NOW</h2>
+
+                <!--     <button type="button" class="btn btn-primary" ng-click="nowTime()"></button> -->
+            </div>
+            <div class="col-xs-2">
+                <h2 class="timing">OR</h2>
+            </div>
+            <div class="col-xs-5">
+                <h2 class="timing">LATER</h2>
+                <form name="dateSearch">
+                    <input type="datetime-local" ng-model="dateSearch.date" name=chooseDate>
+                    <button type="submit" class="btn btn-primary" ng-click="laterTime()"></button>
+                </form>
+            </div>
+        </div>
+        <section id="currentList" class="container-fluid">
+            <div class="col-lg-6" ng-repeat="rest in rests | filter:timeFilter">
                 <h3>{{rest.name}}</h3>
-                <h4>{{rest.now}}</h4>
                 <h4>{{rest.description}}</h4>
             </div>
         </section>
