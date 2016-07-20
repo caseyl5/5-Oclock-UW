@@ -107,7 +107,6 @@ myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($s
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('test');
 	var happyHour = $firebaseObject(restaurants);
-	happy = happyHour;
 	$scope.rests = happyHour;
 
 
