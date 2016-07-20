@@ -47,11 +47,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 	var usersRef = baseRef.child('users');
 	$scope.users = $firebaseObject(usersRef);
 
-	// How To access restaurants in firebase
-	var restaurants = baseRef.child('restaurants');
-	var happyHour = $firebaseObject(restaurants);
-	console.log(happyHour);
-
+	// Allows user to signup
 	$scope.signUp = function (data) {
 		Auth.$createUserWithEmailAndPassword($scope.newUser.email, $scope.newUser.confirm)
 			.then(function (firebaseUser) {
@@ -64,6 +60,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 			})
 	};
 
+	// To be run when user logs in or out
 	Auth.$onAuthStateChanged(function (firebaseUser) {
 		if (firebaseUser) {
 			$scope.userId = firebaseUser.uid;
@@ -76,11 +73,13 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 		}
 	});
 
+	// Allows user to sign out
 	$scope.signOut = function () {
 		console.log($scope.userId);
 		Auth.$signOut();
 	};
 
+	// Allows user to sign in
 	$scope.signIn = function () {
 		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
 			.then(function (firebaseUser) {
