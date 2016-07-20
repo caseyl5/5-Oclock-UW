@@ -19,7 +19,7 @@
 
             <div class="from-group">
                 <label for="time">Happy Hours:</label>
-                <input type="text" name="time" id= "time" ng-model="time" required>
+                <input type="text" placeholder = "Seperate with commas" name="time" id= "time" ng-model="time" required>
             </div>
 
             <div class="from-group">
@@ -27,7 +27,7 @@
                 <input type="text" name="description" id= "description" ng-model="description" required>
             </div>
 
-            <button type="submit" class="btn btn-primary" ng-disabled="addDetail.$invalid" ng-click="">Add the Deal</button>
+            <button type="submit" class="btn btn-primary" ng-disabled="addDetail.$invalid" ng-click="newDeal(id, name, time, description)">Add the Deal</button>
         </form>
 
 

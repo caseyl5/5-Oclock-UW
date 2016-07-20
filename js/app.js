@@ -99,7 +99,10 @@ myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', funct
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseObject(restaurants);
-
+	
+	$scope.newDeal = function (resId, resName, happyTime, description) {
+		
+	}
 }])
 
 myApp.controller('homeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
