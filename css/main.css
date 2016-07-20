@@ -1,10 +1,17 @@
-#all {
+/*#all {
     background-image: url('https://media.timeout.com/images/100519023/image.jpg') !important;
     color: darkgoldenrod;
-}
+}*/
 
-#menu.li {
-    color: black;
+nav {
+  position: fixed;
+  top: 0px;
+  background-color: rgba(192, 192, 192, .8);
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: .5em;
+  width: 100%;
+  color: white;
 }
 
 table, th , td {
@@ -41,7 +48,7 @@ section {
 }
 
 .linknav {
-  color: darkgoldenrod;
+  color: lightslategray;
 }
 
 .timing, #selectOpen {
@@ -53,29 +60,73 @@ section {
   font-weight: 500;
 }
 
-header, footer {
-   background-color: rgba(0, 0, 0, 0.8);
-}
-
-#timeSelect {
-font-family: 'Open Sans', sans-serif;
-}
-
 
 #dealFormat {
   color: white;
   padding-top: 8px;
 }
 
-#dateSelect {
-  font-size: 45%;
+#timeOptions {
+  background-color: #A5A5AF;
+  padding: 0;
+}
+
+#header-content {
+  margin-top: 35px;
+  text-align: left;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+#clock {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+#buttonGroup {
+  text-align: center;
+}
+
+#selectHead {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 50;
+  font-size: 2em;
 }
 
 #selectOpen {
-  background-image: url("../img/Udistrict.jpeg");
-  background-size: 320px 160px;
+  background-color:#6C648B;
 }
 
-#selectOpen .container-fluid {
-  background-color: rgba(255, 255, 255, 1);
+#pickNow, #pickLater {
+  margin-top: .75em;
+  margin-bottom: .75em;
+  background-color: #6BBAA7; 
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+#pickLater {
+  border-right: none;
+}
+
+#pickNow {
+  border-right: 15px; 
+}
+
+#findHappy {
+  background-color: #FBA100;
+  border:none;
+}
+
+#currentList .col-lg-6 {
+  background-color: #B6A19E; 
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
 }

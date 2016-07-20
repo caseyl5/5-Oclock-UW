@@ -1,41 +1,43 @@
-<main ng-controller="TimeCtrl">
+<main id="when" ng-controller="TimeCtrl">
 
-    <body id="timeSelect">
-        <section id="selectOpen" class="container-fluid">
-            <h1 id="selectHead">When is happy hour?</h1>
-        </section>
 
-        <section id="timeOptions" class="container-fluid">
-            <form ng-submit="submit()" role="form" name="timeOptions">
+    <section id="selectOpen" class="container">
+        <h1 id="selectHead"><i class="fa fa-cutlery" aria-hidden="true"></i> When is happy hour? <i class="fa fa-beer" aria-hidden="true"></i></h1>
+    </section>
 
-                <div class="col-xs-6">
-                    <div class="form-group">
-                        <h3>Now <input type="radio" name="time" value="now"></h3>
-                    </div>
+    <section id="timeOptions" class="container">
+        <form ng-submit="submit()" role="form" name="timeOptions">
+
+            <div id=buttonGroup>
+                <div id="bGroup" class="btn-group" data-toggle="buttons">
+
+                    <label id="pickNow" class="btn btn-primary">
+                     <input type="radio" name="time" value="now" autocomplete="off"> Now
+                 </label>
+                    <label id="pickLater" class="btn btn-primary">
+                    <input type="radio" name="time" value="later" autocomplete="off" ng-model="checked"> Later
+                </label>
                 </div>
 
-                <div class="col-xs-6">
-                    <div class="form-group">
-                        <h3>Later <input type="radio" name="time" value="later" ng-model="checked">
-                            <input ng-show="checked" id="dateSelect" type="datetime-local" ng-model="date" name=chooseDate></h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <button type="submit" id="findHappy" value="submit" class="btn btn-primary btn-lg btn-block">
-                            Find happy hours!</button>
-                    </div>
-                </div>
-            </form>
-        </section>
-
-        <section id="currentList" class="container-fluid">
-            <h3>Now showing happy hours at {{happy}}</h3>
-            <div class="col-lg-6" ng-repeat="rest in rests | filter:timeFilter">
-                <h3>{{rest.name}}</h3>
-                <h4>{{rest.description}}</h4>
+                <input ng-show="checked" id="dateSelect" type="datetime-local" ng-model="date" name=chooseDate>
             </div>
-        </section>
-    </body>
+
+
+            <div class="form-group">
+                <button type="submit" id="findHappy" value="submit" class="btn btn-primary center-block">Find happy hours!</button>
+            </div>
+            </div>
+
+        </form>
+    </section>
+
+    <section id="currentList" class="container">
+        <h3>Now showing happy hours at {{happy}}</h3>
+        <div class="col-lg-6" ng-repeat="rest in rests | filter:timeFilter">
+            <h3>{{rest.name}}</h3>
+            <h4>{{rest.description}}</h4>
+        </div>
+    </section>
+
 
 </main>
