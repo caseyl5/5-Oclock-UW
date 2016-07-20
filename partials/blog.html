@@ -21,12 +21,12 @@
             <br>
             <div class="from-group">
                 <label for="description">Description:</label>
-                <input type="text" name="description" id= "description" ng-model="description" required>
+                <input type="text" name="description" id= "description" ng-model="description">
             </div>
             <br>
             <div class="from-group">
                 <label for="website">Website:</label>
-                <input type="text" name="website" id= "website" ng-model="website" required>
+                <input type="url" name="website" id= "website" ng-model="website" required>
             </div>
             <br>
             <button type="submit" class="btn btn-primary" ng-disabled="addDetail.$invalid" ng-click="newDeal(name, time, description, website)">Add the Deal</button>
