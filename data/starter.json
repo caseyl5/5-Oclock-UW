@@ -5,13 +5,41 @@
             "name": "Finn MacCool's",
             "website": "http://www.finnmaccools.com/",
             "happyHours": [
-                "4:00pm-7:00pm",
-                "4:00pm-7:00pm",
-                "4:00pm-7:00pm",
-                "4:00pm-7:00pm",
-                "4:00pm-7:00pm",
-                "4:00pm-7:00pm",
-                "4:00pm-7:00pm"
+                {
+                    "day": "Monday",
+                    "start": 16,
+                    "end": 19
+                },
+                {
+                    "day": "Tuesday",
+                    "start": 16,
+                    "end": 19
+                },
+                {
+                    "day": "Wednesday",
+                    "start": 16,
+                    "end": 19
+                },
+                {
+                    "day": "Thursday",
+                    "start": 16,
+                    "end": 19
+                },
+                {
+                    "day": "Friday",
+                    "start": 16,
+                    "end": 19
+                },
+                {
+                    "day": "Saturday",
+                    "start": 16,
+                    "end": 19
+                },
+                {
+                    "day": "Sunday",
+                    "start": 16,
+                    "end": 19
+                }
             ],
             "description": "$3 Wine $4 Wells $4 Micro Brews $5 Appetizers $3 off any pizza"
         },
@@ -20,13 +48,41 @@
             "name": "Eureka",
             "website": "https://uvillage.com/eureka/",
             "happyHours": [
-                "2:00pm-6:00pm and 9:00pm-11:00pm",
-                "2:00pm-6:00pm and 9:00pm-11:00pm",
-                "2:00pm-6:00pm and 9:00pm-11:00pm",
-                "2:00pm-6:00pm and 9:00pm-11:00pm",
-                "2:00pm-6:00pm and 9:00pm-11:00pm",
-                "2:00pm-6:00pm and 9:00pm-11:00pm",
-                "2:00pm-6:00pm and 9:00pm-11:00pm"
+                {
+                    "day": "Monday",
+                    "start": 14,
+                    "end": 18
+                },
+                {
+                    "day": "Tuesday",
+                    "start": 14,
+                    "end": 18
+                },
+                {
+                    "day": "Wednesday",
+                    "start": 14,
+                    "end": 18
+                },
+                {
+                    "day": "Thursday",
+                    "start": 14,
+                    "end": 18
+                },
+                {
+                    "day": "Friday",
+                    "start": 14,
+                    "end": 18
+                },
+                {
+                    "day": "Saturday",
+                    "start": 14,
+                    "end": 18
+                },
+                {
+                    "day": "Sunday",
+                    "start": 14,
+                    "end": 18
+                }
             ],
             "description": "Half price appetizers Craft Brews $3-$5"
         },
@@ -35,13 +91,66 @@
             "name": "Mamma Melina",
             "website": "http://mammamelina.com/index.php",
             "happyHours": [
-                "11:30am-11:00pm",
-                "11:30am-11:00pm",
-                "3:00pm-7:00pm and 9:00pm-11:00pm",
-                "3:00pm-7:00pm and 9:00pm-11:00pm",
-                "3:00pm-7:00pm and 9:00pm-11:00pm",
-                "3:00pm-7:00pm and 9:00pm-11:00pm",
-                "3:00pm-7:00pm and 9:00pm-11:00pm"
+                {
+                    "day": "Sunday",
+                    "start": 11,
+                    "end": 23
+                },
+                {
+                    "day": "Monday",
+                    "start": 11,
+                    "end": 23
+                },
+                {
+                    "day": "Tuesday",
+                    "start": 15,
+                    "end": 19
+                },
+                {
+                    "day": "Tuesday",
+                    "start": 21,
+                    "end": 23
+                },
+                {
+                    "day": "Wednesday",
+                    "start": 15,
+                    "end": 19
+                },
+                {
+                    "day": "Wednesday",
+                    "start": 21,
+                    "end": 23
+                },
+                {
+                    "day": "Thursday",
+                    "start": 15,
+                    "end": 19
+                },
+                {
+                    "day": "Thursday",
+                    "start": 21,
+                    "end": 23
+                },
+                {
+                    "day": "Friday",
+                    "start": 15,
+                    "end": 19
+                },
+                {
+                    "day": "Friday",
+                    "start": 21,
+                    "end": 23
+                },
+                {
+                    "day": "Saturday",
+                    "start": 15,
+                    "end": 19
+                },
+                {
+                    "day": "Saturday",
+                    "start": 21,
+                    "end": 23
+                }
             ],
             "description": "Classic Plates $3-$9, Wine Bottles $15, Speciality Cocktails $5"
         },

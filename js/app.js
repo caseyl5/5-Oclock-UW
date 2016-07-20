@@ -88,7 +88,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 				console.log(firebaseUser.uid);
 			})
 	};
-	
+
 }]);
 
 //controller for adding feature
@@ -158,7 +158,7 @@ myApp.factory('commentService', function () {
 
 // controller for the favorites page 
 // filters data based on user 
-myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
+myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $firebaseObject) {
     // user data loaded from cloud in future version 
 	// want data from user 1 
 	$http.get('data/starter.json').then(function (response) {
@@ -175,35 +175,53 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http) {
 
 }]);
 
-myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
-
+myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseObject', function ($scope, $http, $firebaseObject) {
+	// if now is selected for desired time 
 	$scope.nowTime = function () {
 		var time = new Date();
 		getHappy(time);
 	}
-
+	// if a different time is selected 
 	$scope.laterTime = function () {
 		var time = $scope.dateSearch.date;
-		getHappy(time); 
+		getHappy(time);
 	}
 
+	// given the time current or later a list of deals will be added 
+	// accepts a time from either option as a parameter 
+	function getHappy(realTime) {
 
-	 function getHappy(realTime) {
+		var baseRef = firebase.database().ref();
+		var restaurants = baseRef.child('restaurants');
+		var happyHour = $firebaseObject(restaurants);
+
+		var obj = $firebaseObject(ref);
+		obj.$loaded()
+			.then(function (data) {
+				console.log(data === obj); // true
+			})
+			.catch(function (error) {
+				console.error("Error:", error);
+			});
+
+		console.log(happyHour[0]);
+
 		var daySearch = moment(realTime).format('dddd');
 		var timeSearch = moment(realTime).format('LT');
-		var timeFormat = timeSearch.substring(0, timeSearch.indexOf(":"));
-		var timeDo = Number(timeFormat);  
-		var timeUse = timeDo + 12; 
+		var timeFormat = timeSearch.substring(0, timeSearch.indexOf(":")); // breaks apart by the hour
+		var timeDo = Number(timeFormat);
+		var timeUse = timeDo + 12; // converts time into single number 
 
 		$http.get('data/starter.json').then(function (response) {
 			var data = response.data;
 			var search = data.restaurants;
+			//console.log(search); 
 			var toAdd = [];
 			for (var i = 0; i < search.length; i++) {
 				var hours = search[i].happyHours;
 				var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 				var index = days.indexOf(daySearch);
-				
+
 				var context = [];
 				if (hours != undefined) {
 					var snap = hours[index].replace(/-|" "|and/g, "");
@@ -218,7 +236,7 @@ myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
 						}
 						context.push(add);
 					}
-				} 
+				}
 				if (isHappyHour(context, timeUse)) {
 					search[i].now = search[i].happyHours[index];
 					toAdd.push(search[i]);
@@ -229,15 +247,3 @@ myApp.controller('TimeCtrl', ['$scope', '$http', function ($scope, $http) {
 	}
 }]);
 
-
-function isHappyHour(tested, time) {
-	if (time >= tested[0] && time <= tested[1]) {
-		return true;
-	} else if (tested.length > 2) {
-		if (time >= tested[2] && time <= tested[3]) {
-			return true;
-		}
-	} else {
-		return false;
-	}
-}

@@ -1,0 +1,1 @@
+<li ng-repeat="hour in happyHours | filter:{'day':'Mondauy'}">
