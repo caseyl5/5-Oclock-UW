@@ -25,10 +25,6 @@ table tr:nth-child(even) {
 #new {
     color: black;
 }
-.login {
-    background: url('https://media.timeout.com/images/100519023/image.jpg') !important;
-    color: darkgoldenrod;
-}
 section {
   padding: 1em; 
 } 
