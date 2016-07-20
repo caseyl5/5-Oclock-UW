@@ -1,5 +1,30 @@
-<div class="container-fluid">
+<main>
+    <div class="container-fluid">
+        <h2>Add New Happy Hours :D</h2>
+        <form name = "addDetail">
+            <div class="from-group">
+                <label for="name">Restaurant name:</label>
+                <input type="text" name="name" id= "name" ng-model="name" required>
+            </div>
+            
+            <div class="from-group">
+                <label for="resId">Restaurant ID:</label>
+                <input type="resId" name="resId" id= "resId" ng-model="resId" required>
+            </div>
+
+            <div class="from-group">
+                <label for="time">Happy Hours:</label>
+                <input type="text" name="time" id= "time" ng-model="time" required>
+            </div>
+
+            <div class="from-group">
+                <label for="description">Description:</label>
+                <input type="text" name="description" id= "description" ng-model="description" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="addDetail.$invalid" ng-click="">Add the Deal</button>
+        </form>
 
 
-
-</div>
+    </div>
+</main>
