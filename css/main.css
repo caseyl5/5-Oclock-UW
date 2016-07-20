@@ -64,7 +64,7 @@ section {
 
 
 #dealFormat {
-  color: white;
+  color: black;
   padding-top: 8px;
 }
 
@@ -139,5 +139,6 @@ body {
         max-width: 1200px;
     }
 }
+
 
 
