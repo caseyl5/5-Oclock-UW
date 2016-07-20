@@ -95,6 +95,11 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 //controller for adding feature
 myApp.controller('addCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', '$window', function ($scope, $firebaseAuth, $firebaseObject, $window) {
 	$scope.userId = globalUserID;
+	var Auth = $firebaseAuth();
+	$scope.newUser = {};
+	var baseRef = firebase.database().ref();
+	var restaurants = baseRef.child('restaurants');
+	var happyHour = $firebaseObject(restaurants);
 
 	$scope.signIn = function () {
 		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
