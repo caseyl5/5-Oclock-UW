@@ -1,4 +1,4 @@
- #all {
+#all {
     background-image: url('https://media.timeout.com/images/100519023/image.jpg') !important;
     color: darkgoldenrod;
 }
@@ -48,28 +48,9 @@ section {
   text-align: center;
 }
 
-#timeSelect {
-  background-color: lightgrey;
-}
-
 .timing {
   font-size: 1.5em;
   font-weight: 500;
-}
-
-#selectOpen {
-  background-color: rgba(59, 59, 59, .9);
-  color: lightgray;
-  font-weight: 350;
-}
-
-#timeOptions {
-
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
-#timeSelect section {
-  padding-bottom: 1.8em;
 }
 
 header, footer {
@@ -77,7 +58,7 @@ header, footer {
 }
 
 #timeSelect {
-  font-family: Tahoma, Geneva, sans-serif;
+font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -86,6 +67,15 @@ header, footer {
   padding-top: 8px;
 }
 
-#selectOpen, #currentList {
-  background-color: rgba(59, 59, 59, .9);
+#dateSelect {
+  font-size: 45%;
+}
+
+#selectOpen {
+  background-image: url("../img/Udistrict.jpeg");
+  background-size: 320px 160px;
+}
+
+#selectOpen .container-fluid {
+  background-color: rgba(255, 255, 255, 1);
 }

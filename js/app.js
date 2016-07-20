@@ -144,6 +144,7 @@ myApp.controller('FavCtrl', ['$scope', '$http', function ($scope, $http, $fireba
 myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($scope, $http, $firebaseArray) {
 	var time = 0;
 	var day = ""; 
+	$scope.happy = "..."; 
 	$scope.submit = function() {
 		var userDate = $scope.date;
 		if (userDate == null) {
@@ -151,30 +152,20 @@ myApp.controller('TimeCtrl', ['$scope', '$http', '$firebaseArray', function ($sc
 		}
 		day = moment(userDate).format('dddd');
 		time = userDate.getHours();
+		$scope.happy = moment(userDate).format('LLL');
 	}
-	
 	
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseArray(restaurants);
-
-	//var watch = new Date(); // either given time or current time 
-	//	var time = watch.getHours(); // returns hour number
-	//time 
-
-	//	var day = moment().format('dddd'); // returns name of day current time in testing
-	//var time = 4;
-	//var day = "Friday";
-
+	
+	
 	$scope.rests = happyHour;
-	console.log(happyHour);
 	$scope.timeFilter = function (place) {
 		if (isHappyHour(time, day, place.happyHours)) {
 			return true;
 		}
 	};
-
-
 }]);
 
 // helper function that accepts a time in hours (0-23), a day by its name and an array of happy hours
