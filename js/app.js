@@ -107,11 +107,10 @@ myApp.controller('addCtrl', ['$window','$scope', '$firebaseObject', '$firebaseAr
 	var restaurants = baseRef.child('restaurants');
 	var happyHour = $firebaseArray(restaurants);
 	
-	
 	//adding new deal
 	$scope.newDeal = function (resName, happyTime, description, website) {
 		var timeList = happyTime.split(",");
-		//var weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		//format the happy hour time
 		angular.forEach(timeList, function(dealTime, index) {
 			var duration = dealTime.split("|");
 			timeList[index] = {
@@ -120,6 +119,7 @@ myApp.controller('addCtrl', ['$window','$scope', '$firebaseObject', '$firebaseAr
 				end: duration[2]
 			}
 		});
+
 		restaurants.push({
 			description: description,
 			happyHours: timeList,
@@ -127,6 +127,9 @@ myApp.controller('addCtrl', ['$window','$scope', '$firebaseObject', '$firebaseAr
 			restaurantId: "restaurant-id-" +　happyHour.length,
 			website: website
 		})
+		
+		
+		//reset after submitting information
 		$scope.name = "";
 		$scope.time = "";
 		$scope.description = "";
