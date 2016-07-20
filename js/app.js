@@ -3,7 +3,7 @@
 // For Phan, firebase UserID
 var globalUserID;
 
-var myApp = angular.module('HourApp', ['firebase', 'ngSanitize', 'ui.bootstrap', 'ui.router']);
+var myApp = angular.module('HourApp', ['firebase', 'ngSanitize', 'ui.bootstrap', 'ui.router', 'angular.filter']);
 
 //configure routes
 myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -47,11 +47,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 	var usersRef = baseRef.child('users');
 	$scope.users = $firebaseObject(usersRef);
 
-	// How To access restaurants in firebase
-	var restaurants = baseRef.child('restaurants');
-	var happyHour = $firebaseObject(restaurants);
-	console.log(happyHour);
-
+	// Allows user to signup
 	$scope.signUp = function (data) {
 		Auth.$createUserWithEmailAndPassword($scope.newUser.email, $scope.newUser.confirm)
 			.then(function (firebaseUser) {
@@ -64,6 +60,7 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 			})
 	};
 
+	// To be run when user logs in or out
 	Auth.$onAuthStateChanged(function (firebaseUser) {
 		if (firebaseUser) {
 			$scope.userId = firebaseUser.uid;
@@ -76,11 +73,13 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 		}
 	});
 
+	// Allows user to sign out
 	$scope.signOut = function () {
 		console.log($scope.userId);
 		Auth.$signOut();
 	};
 
+	// Allows user to sign in
 	$scope.signIn = function () {
 		Auth.$signInWithEmailAndPassword($scope.newUser.LogEmail, $scope.newUser.LogPass)
 			.then(function (firebaseUser) {
@@ -91,16 +90,26 @@ myApp.controller('userCtrl', ['$scope', '$firebaseAuth', '$firebaseObject', func
 }]);
 
 //controller for adding feature
-myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseObject, $firebaseAuth) {
-	$scope.userId = globalUserID;
+myApp.controller('addCtrl', ['$window','$scope', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function ($window, $scope, $firebaseObject, $firebaseArray, $firebaseAuth) {
+	$firebaseAuth().$onAuthStateChanged(function (firebaseUser) {
+		if (firebaseUser) {
+			$scope.userId = firebaseUser.uid;
+			globalUserID = firebaseUser.uid;
+			console.log(globalUserID);
+		}
+		else {
+			$scope.userId = undefined;
+			globalUserID = undefined;
+		}
+	});
 	var baseRef = firebase.database().ref();
 	var restaurants = baseRef.child('restaurants');
-	
+	var happyHour = $firebaseArray(restaurants);
 	
 	//adding new deal
 	$scope.newDeal = function (resName, happyTime, description, website) {
 		var timeList = happyTime.split(",");
-		//var weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		//format the happy hour time
 		angular.forEach(timeList, function(dealTime, index) {
 			var duration = dealTime.split("|");
 			timeList[index] = {
@@ -109,6 +118,7 @@ myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseAuth', funct
 				end: duration[2]
 			}
 		});
+
 		restaurants.push({
 			description: description,
 			happyHours: timeList,
@@ -117,6 +127,13 @@ myApp.controller('addCtrl', ['$scope', '$firebaseObject', '$firebaseAuth', funct
 			website: website
 		})
 		
+		
+		//reset after submitting information
+		$scope.name = "";
+		$scope.time = "";
+		$scope.description = "";
+		$scope.website = "";
+		$window.location.reload();
 	}
 }])
 

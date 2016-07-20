@@ -13,7 +13,7 @@
 	<em><a id="new" ui-sref="signUp">Signup here!</a></em>
 <h2>Where's the beer?</h2>
 <form role="form" class="form-inline">
-    <input type="text" name="search" id="searchTerm" placeholder="Search our locations!" ng-model="searchTerm">
+    <input class='homeFilter' type="text" name="search" id="searchTerm" placeholder="Search our locations!" ng-model="searchTerm">
   </form>
 <table class="table">
 		<tr>
@@ -21,6 +21,7 @@
 			<th scope="col">Description</th>
 			<th scope="col" ng-click="sortBy('website')">Website</th>
 		</tr>
+		<!--<tr ng-repeat="rest in rests | orderBy: ordering | filter:searchTerm | unique: 'rests.name' ">-->
 		<tr ng-repeat="rest in rests | orderBy: ordering | filter:searchTerm">
 			<td ui-sref="locator( {'rest':rest.name} )">{{rest.name}}</td>
 			<td >{{rest.description}}</td>

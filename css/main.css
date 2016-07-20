@@ -1,7 +1,7 @@
-/*#all {
-    background-image: url('https://media.timeout.com/images/100519023/image.jpg') !important;
-    color: darkgoldenrod;
-}*/
+#all {
+  background-color: floralwhite;
+  color: lightslategray
+}
 
 nav {
   position: fixed;
@@ -13,6 +13,8 @@ nav {
   width: 100%;
   color: white;
 }
+
+
 
 table, th , td {
   border: 1px solid grey;
@@ -62,12 +64,12 @@ section {
 
 
 #dealFormat {
-  color: white;
+  color: black;
   padding-top: 8px;
 }
 
 #timeOptions {
-  background-color: #A5A5AF;
+  background-color: silver;
   padding: 0;
 }
 
@@ -95,7 +97,7 @@ body {
 }
 
 #selectOpen {
-  background-color:#6C648B;
+  background-color: lightslategray;
 }
 
 #pickNow, #pickLater {
@@ -121,8 +123,9 @@ body {
 }
 
 #currentList .col-lg-6 {
-  background-color: #B6A19E; 
+  background-color: lightslategray; 
 }
+.input { vertical-align: top; } 
 
 @media (min-width: 500px) {
   #selectHead {
@@ -136,11 +139,12 @@ body {
         max-width: 1200px;
     }
 }
-
-@media (min-width: 1400px) {
-  .container{
-    max-width: 1400px;
-  }
+.homeFilter {
+  margin-bottom: 1em;
+}
+.options {
+  color: white;
+  padding: 3px;
 }
 
 @media (min-width: 1800px) {
@@ -152,3 +156,6 @@ body {
 #placeTitle {
   font-weight: bold; 
 }
+
+
+
